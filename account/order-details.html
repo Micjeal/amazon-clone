@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details - ShopHub</title>
+    <link rel="stylesheet" href="/src/css/main.css">
+    <link rel="stylesheet" href="/src/css/components.css">
+    <link rel="stylesheet" href="/src/css/layout.css">
+</head>
+
+<body>
+
+    <div class="utility-bar">
+        <div class="container">
+            <div class="utility-bar-content">
+                <div><span>🌍 Deliver to United States</span></div>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-main">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🛒</span>
+                    <span class="logo-text hide-mobile">ShopHub</span>
+                </a>
+                <div class="search-container" role="search">
+                    <form class="search-form" action="/search/index.html">
+                        <input type="search" class="search-input" placeholder="Search products...">
+                        <button type="submit" class="search-btn">🔍</button>
+                    </form>
+                </div>
+                <div class="header-actions">
+                    <a href="/cart/index.html" class="cart-icon-wrapper">
+                        <span class="cart-icon">🛒</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin: 2rem 0;">
+                <h1 style="font-size: 2rem; font-weight: bold;">Order Details</h1>
+                <a href="/account/orders.html" style="color: var(--color-accent);">← Back to Orders</a>
+            </div>
+
+            <div
+                style="background: white; padding: 2rem; border: 1px solid var(--color-gray-200); border-radius: 8px; margin-bottom: 1.5rem;">
+                <div
+                    style="display: flex; justify-content: space-between; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--color-gray-200);">
+                    <div>
+                        <div style="font-size: 0.875rem; color: var(--color-gray-600); margin-bottom: 0.25rem;">Order
+                            Number</div>
+                        <div style="font-weight: 600;">#123-4567890-1234567</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 0.875rem; color: var(--color-gray-600); margin-bottom: 0.25rem;">Order
+                            Date</div>
+                        <div style="font-weight: 600;">November 20, 2025</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 0.875rem; color: var(--color-gray-600); margin-bottom: 0.25rem;">Order
+                            Total</div>
+                        <div style="font-weight: 600; font-size: 1.25rem;">$129.99</div>
+                    </div>
+                </div>
+
+                <!-- Tracking Progress -->
+                <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem;">Delivery Status</h2>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 2rem; position: relative;">
+                    <div
+                        style="position: absolute; top: 15px; left: 0; right: 0; height: 2px; background: var(--color-success); z-index: 0;">
+                    </div>
+                    <div style="text-align: center; position: relative; z-index: 1;">
+                        <div
+                            style="width: 30px; height: 30px; margin: 0 auto 0.5rem; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                            ✓</div>
+                        <div style="font-size: 0.75rem;">Ordered</div>
+                    </div>
+                    <div style="text-align: center; position: relative; z-index: 1;">
+                        <div
+                            style="width: 30px; height: 30px; margin: 0 auto 0.5rem; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                            ✓</div>
+                        <div style="font-size: 0.75rem;">Shipped</div>
+                    </div>
+                    <div style="text-align: center; position: relative; z-index: 1;">
+                        <div
+                            style="width: 30px; height: 30px; margin: 0 auto 0.5rem; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">
+                            ✓</div>
+                        <div style="font-size: 0.75rem;">Delivered</div>
+                    </div>
+                </div>
+
+                <div
+                    style="background: var(--color-success-light); padding: 1rem; border-radius: 4px; margin-bottom: 2rem;">
+                    <p style="color: var(--color-success); font-weight: 600;">✅ Delivered on November 25, 2025</p>
+                </div>
+
+                <!-- Order Items -->
+                <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem;">Items in this order</h2>
+                <div
+                    style="display: flex; gap: 1.5rem; padding: 1.5rem; border: 1px solid var(--color-gray-200); border-radius: 8px;">
+                    <img src="/assets/images/products/B07X12345/B07X12345_main_400.jpg" alt="Product"
+                        style="width: 100px; height: 100px; object-fit: contain;">
+                    <div style="flex: 1;">
+                        <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Premium Bluetooth Headphones</h3>
+                        <p style="color: var(--color-gray-600); font-size: 0.875rem; margin-bottom: 0.5rem;">Quantity: 1
+                        </p>
+                        <p style="font-weight: bold; color: var(--color-error);">$129.99</p>
+                        <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                            <button class="btn btn-sm btn-primary">Buy Again</button>
+                            <button class="btn btn-sm btn-outline">Write a Review</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shipping & Payment Info -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                <div
+                    style="background: white; padding: 1.5rem; border: 1px solid var(--color-gray-200); border-radius: 8px;">
+                    <h3 style="font-weight: 600; margin-bottom: 1rem;">Shipping Address</h3>
+                    <p style="color: var(--color-gray-700); line-height: 1.6;">
+                        Demo User<br>
+                        123 Main Street, Apt 4B<br>
+                        New York, NY 10001<br>
+                        United States
+                    </p>
+                </div>
+
+                <div
+                    style="background: white; padding: 1.5rem; border: 1px solid var(--color-gray-200); border-radius: 8px;">
+                    <h3 style="font-weight: 600; margin-bottom: 1rem;">Payment Method</h3>
+                    <p style="color: var(--color-gray-700);">
+                        Visa ending in 1234<br>
+                        <button class="btn btn-sm btn-outline" style="margin-top: 0.5rem;">Download Invoice</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

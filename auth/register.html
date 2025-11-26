@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - ShopHub</title>
+    <link rel="stylesheet" href="/src/css/main.css">
+    <link rel="stylesheet" href="/src/css/components.css">
+    <link rel="stylesheet" href="/src/css/layout.css">
+    <style>
+        .auth-container {
+            max-width: 500px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background: white;
+            border: 1px solid var(--color-gray-200);
+            border-radius: 8px;
+        }
+
+        .password-strength {
+            height: 4px;
+            background: var(--color-gray-200);
+            border-radius: 2px;
+            margin-top: 0.5rem;
+            overflow: hidden;
+        }
+
+        .password-strength-fill {
+            height: 100%;
+            transition: width 0.3s, background-color 0.3s;
+        }
+    </style>
+</head>
+
+<body style="background: var(--color-gray-50);">
+
+    <div class="auth container">
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <a href="/" style="font-size: 3rem;">🛒</a>
+            <h1 style="font-size: 1.5rem; margin-top: 0.5rem;">Create account</h1>
+        </div>
+
+        <form id="register-form" onsubmit="handleRegister(event)">
+            <div class="form-group">
+                <label for="name" class="form-label">Your name</label>
+                <input type="text" id="name" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone" class="form-label">Phone number (optional)</label>
+                <input type="tel" id="phone" class="form-input">
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" class="form-input" required minlength="8"
+                    oninput="checkPasswordStrength()">
+                <div class="password-strength">
+                    <div id="strength-fill" class="password-strength-fill"
+                        style="width: 0%; background: var(--color-gray-400);"></div>
+                </div>
+                <p id="strength-text" style="font-size: 0.75rem; margin-top: 0.25rem; color: var(--color-gray-600);">
+                    Password must be at least 8 characters
+                </p>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm-password" class="form-label">Confirm password</label>
+                <input type="password" id="confirm-password" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+                <label class="flex items-start gap-2">
+                    <input type="checkbox" class="form-checkbox" required>
+                    <span style="font-size: 0.875rem;">
+                        I agree to ShopHub's <a href="#" class="text-accent">Terms and Conditions</a> and <a href="#"
+                            class="text-accent">Privacy Policy</a>
+                    </span>
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                Create your ShopHub account
+            </button>
+
+            <p style="margin-top: 1rem; text-align: center; font-size: 0.875rem;">
+                Already have an account? <a href="/auth/login.html" class="text-accent">Sign in</a>
+            </p>
+        </form>
+    </div>
+
+    <script>
+        function checkPasswordStrength() {
+            const password = document.getElementById('password').value;
+            const fill = document.getElementById('strength-fill');
+            const text = document.getElementById('strength-text');
+
+            let strength = 0;
+            if (password.length >= 8) strength++;
+            if (password.match(/[a-z]/) && password.match(/[A-Z]/)) strength++;
+            if (password.match(/[0-9]/)) strength++;
+            if (password.match(/[^a-zA-Z0-9]/)) strength++;
+
+            const widths = ['0%', '25%', '50%', '75%', '100%'];
+            const colors = [
+                'var(--color-gray-400)',
+                'var(--color-error)',
+                'var(--color-warning)',
+                'var(--color-info)',
+                'var(--color-success)'
+            ];
+            const texts = [
+                'Password must be at least 8 characters',
+                'Weak password',
+                'Fair password',
+                'Good password',
+                'Strong password'
+            ];
+
+            fill.style.width = widths[strength];
+            fill.style.backgroundColor = colors[strength];
+            text.textContent = texts[strength];
+            text.style.color = colors[strength];
+        }
+
+        function handleRegister(event) {
+            event.preventDefault();
+
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            // Mock registration
+            localStorage.setItem('user', JSON.stringify({ name, email }));
+            alert('Account created successfully!');
+            window.location.href = '/';
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Support - ShopHub</title>
+    <link rel="stylesheet" href="/src/css/main.css">
+    <link rel="stylesheet" href="/src/css/components.css">
+    <link rel="stylesheet" href="/src/css/layout.css">
+</head>
+
+<body>
+
+    <div class="utility-bar">
+        <div class="container">
+            <div class="utility-bar-content">
+                <div><span>🌍 Deliver to United States</span></div>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-main">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🛒</span>
+                    <span class="logo-text hide-mobile">ShopHub</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container" style="max-width: 1000px; margin: 0 auto;">
+            <div style="text-align: center; padding: 3rem 0 2rem;">
+                <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem;">Contact Us</h1>
+                <p style="color: var(--color-gray-600);">We're here to help! Choose your preferred contact method</p>
+            </div>
+
+            <!-- Contact Methods -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" style="margin-bottom: 3rem;">
+                <div class="card" style="padding: 2rem; text-align: center;">
+                    <div
+                        style="width: 60px; height: 60px; margin: 0 auto 1rem; background: var(--color-primary-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+                        📧</div>
+                    <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Email Support</h3>
+                    <p style="color: var(--color-gray-600); font-size: 0.875rem; margin-bottom: 1rem;">Response within
+                        24 hours</p>
+                    <a href="mailto:support@shophub.com"
+                        style="color: var(--color-accent); font-weight: 600;">support@shophub.com</a>
+                </div>
+
+                <div class="card" style="padding: 2rem; text-align: center;">
+                    <div
+                        style="width: 60px; height: 60px; margin: 0 auto 1rem; background: var(--color-success-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+                        📞</div>
+                    <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Phone Support</h3>
+                    <p style="color: var(--color-gray-600); font-size: 0.875rem; margin-bottom: 1rem;">Mon-Fri, 9am-6pm
+                        EST</p>
+                    <a href="tel:1-800-SHOPHUB" style="color: var(--color-accent); font-weight: 600;">1-800-SHOP-HUB</a>
+                </div>
+
+                <div class="card" style="padding: 2rem; text-align: center;">
+                    <div
+                        style="width: 60px; height: 60px; margin: 0 auto 1rem; background: var(--color-accent-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+                        💬</div>
+                    <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Live Chat</h3>
+                    <p style="color: var(--color-gray-600); font-size: 0.875rem; margin-bottom: 1rem;">Available 24/7
+                    </p>
+                    <button class="btn btn-sm btn-accent">Start Chat</button>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="card" style="padding: 2rem; margin-bottom: 3rem;">
+                <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1.5rem;">Send us a message</h2>
+
+                <form>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" id="name" class="form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" class="form-input" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Subject</label>
+                        <select id="subject" class="form-select" required>
+                            <option value="">Select a topic</option>
+                            <option>Order Status</option>
+                            <option>Returns & Refunds</option>
+                            <option>Product Question</option>
+                            <option>Technical Issue</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="order-number" class="form-label">Order Number (Optional)</label>
+                        <input type="text" id="order-number" class="form-input" placeholder="#ORD-123456">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" class="form-input" rows="6" required
+                            placeholder="Tell us how we can help..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Back to Help Center -->
+            <div style="text-align: center; padding-bottom: 3rem;">
+                <a href="/help/index.html" style="color: var(--color-accent); font-weight: 600;">← Back to Help
+                    Center</a>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

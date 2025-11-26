@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management - ShopHub Admin</title>
+    <link rel="stylesheet" href="/src/css/main.css">
+    <link rel="stylesheet" href="/src/css/components.css">
+    <link rel="stylesheet" href="/src/css/layout.css">
+    <style>
+        .admin-layout {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            min-height: 100vh;
+        }
+
+        .admin-sidebar {
+            background: var(--color-gray-900);
+            color: white;
+            padding: 2rem 0;
+        }
+
+        .admin-main {
+            background: var(--color-gray-50);
+            padding: 2rem;
+        }
+
+        .admin-nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1.5rem;
+            color: var(--color-gray-300);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .admin-nav-link:hover,
+        .admin-nav-link.active {
+            background: var(--color-gray-800);
+            color: white;
+        }
+
+        .admin-table {
+            width: 100%;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .admin-table th {
+            background: var(--color-gray-100);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .admin-table td {
+            padding: 1rem;
+            border-top: 1px solid var(--color-gray-200);
+        }
+
+        .product-thumb {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            border: 1px solid var(--color-gray-200);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="admin-layout">
+        <!-- Sidebar (reuse from dashboard) -->
+        <aside class="admin-sidebar">
+            <div style="padding: 0 1.5rem 2rem; border-bottom: 1px solid var(--color-gray-700);">
+                <h1 style="font-size: 1.5rem; font-weight: bold;">ShopHub Admin</h1>
+            </div>
+            <nav style="margin-top: 1rem;">
+                <a href="/admin/index.html" class="admin-nav-link">
+                    <span>📊</span><span>Dashboard</span>
+                </a>
+                <a href="/admin/products.html" class="admin-nav-link active">
+                    <span>📦</span><span>Products</span>
+                </a>
+                <a href="/admin/orders.html" class="admin-nav-link">
+                    <span>🛒</span><span>Orders</span>
+                </a>
+                <a href="/admin/users.html" class="admin-nav-link">
+                    <span>👥</span><span>Users</span>
+                </a>
+                <a href="/admin/categories.html" class="admin-nav-link">
+                    <span>📂</span><span>Categories</span>
+                </a>
+                <a href="/admin/promotions.html" class="admin-nav-link">
+                    <span>🎁</span><span>Promotions</span>
+                </a>
+                <a href="/admin/analytics.html" class="admin-nav-link">
+                    <span>📈</span><span>Analytics</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <div>
+                    <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 0.5rem;">Product Management</h2>
+                    <p style="color: var(--color-gray-600);">Manage your product catalog</p>
+                </div>
+                <button class="btn btn-primary" onclick="openAddProductModal()">+ Add New Product</button>
+            </div>
+
+            <!-- Filters -->
+            <div
+                style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: var(--shadow-sm); margin-bottom: 2rem;">
+                <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 1rem; align-items: end;">
+                    <div class="form-group" style="margin: 0;">
+                        <label for="search-products" class="form-label">Search Products</label>
+                        <input type="search" id="search-products" class="form-input"
+                            placeholder="Search by name, SKU, or category...">
+                    </div>
+                    <div class="form-group" style="margin: 0;">
+                        <label for="category-filter" class="form-label">Category</label>
+                        <select id="category-filter" class="form-select">
+                            <option value="">All Categories</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="fashion">Fashion</option>
+                            <option value="home">Home</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin: 0;">
+                        <label for="stock-filter" class="form-label">Stock Status</label>
+                        <select id="stock-filter" class="form-select">
+                            <option value="">All</option>
+                            <option value="in_stock">In Stock</option>
+                            <option value="low_stock">Low Stock</option>
+                            <option value="out_of_stock">Out of Stock</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Table -->
+            <div style="background: white; border-radius: 8px; box-shadow: var(--shadow-sm);">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 80px;">Image</th>
+                            <th>Product Name</th>
+                            <th>SKU</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Status</th>
+                            <th style="width: 150px;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="/assets/images/products/B07X12345/B07X12345_main_400.jpg" alt="Product"
+                                    class="product-thumb"></td>
+                            <td>Premium Bluetooth Headphones</td>
+                            <td>B07X12345</td>
+                            <td>Electronics</td>
+                            <td>$129.99</td>
+                            <td>45</td>
+                            <td><span class="badge badge-success">Active</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline" style="margin-right: 0.25rem;">Edit</button>
+                                <button class="btn btn-sm btn-outline"
+                                    style="color: var(--color-error);">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="/assets/images/products/B08Y23456/B08Y23456_main_400.jpg" alt="Product"
+                                    class="product-thumb"></td>
+                            <td>RGB Gaming Mouse</td>
+                            <td>B08Y23456</td>
+                            <td>Electronics</td>
+                            <td>$59.99</td>
+                            <td>12</td>
+                            <td><span class="badge badge-warning">Low Stock</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline" style="margin-right: 0.25rem;">Edit</button>
+                                <button class="btn btn-sm btn-outline"
+                                    style="color: var(--color-error);">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="/assets/images/products/B09Z34567/B09Z34567_main_400.jpg" alt="Product"
+                                    class="product-thumb"></td>
+                            <td>Smart Watch Pro</td>
+                            <td>B09Z34567</td>
+                            <td>Electronics</td>
+                            <td>$299.99</td>
+                            <td>0</td>
+                            <td><span class="badge badge-error">Out of Stock</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline" style="margin-right: 0.25rem;">Edit</button>
+                                <button class="btn btn-sm btn-outline"
+                                    style="color: var(--color-error);">Delete</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div
+                    style="padding: 1rem; display: flex; justify-content: between; align-items: center; border-top: 1px solid var(--color-gray-200);">
+                    <div style="color: var(--color-gray-600); font-size: 0.875rem;">Showing 3 of 3 products</div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="btn btn-sm btn-outline" disabled>Previous</button>
+                        <button class="btn btn-sm btn-outline" disabled>Next</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function openAddProductModal() {
+            alert('Add Product modal would open here with form for:\n- Product name\n- SKU\n- Description\n- Price\n- Category\n- Images\n- Stock quantity\n- Status');
+        }
+    </script>
+
+</body>
+
+</html>

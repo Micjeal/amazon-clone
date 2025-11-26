@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Your Shipment - ShopHub</title>
+    <link rel="stylesheet" href="/src/css/main.css">
+    <link rel="stylesheet" href="/src/css/components.css">
+    <link rel="stylesheet" href="/src/css/layout.css">
+</head>
+
+<body>
+
+    <div class="utility-bar">
+        <div class="container">
+            <div class="utility-bar-content">
+                <div><span>🌍 Deliver to United States</span></div>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-main">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🛒</span>
+                    <span class="logo-text hide-mobile">ShopHub</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container" style="max-width: 800px; margin: 0 auto; padding: 3rem 0;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem;">Track Your Shipment</h1>
+                <p style="color: var(--color-gray-600);">Enter your tracking number to see delivery status</p>
+            </div>
+
+            <!-- Tracking Form -->
+            <div class="card" style="padding: 2rem; margin-bottom: 3rem;">
+                <form id="tracking-form" onsubmit="trackShipment(event)">
+                    <div class="form-group">
+                        <label for="tracking-number" class="form-label">Tracking Number</label>
+                        <input type="text" id="tracking-number" class="form-input" placeholder="Enter tracking number"
+                            required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Track Package</button>
+                </form>
+            </div>
+
+            <!-- Tracking Results (hidden by default) -->
+            <div id="tracking-results" style="display: none;">
+                <div class="card" style="padding: 2rem; margin-bottom: 2rem;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 2rem;">
+                        <div>
+                            <div style="font-size: 0.875rem; color: var(--color-gray-600); margin-bottom: 0.25rem;">
+                                Tracking Number</div>
+                            <div style="font-weight: 600; font-size: 1.125rem;" id="result-tracking-number"></div>
+                        </div>
+                        <span class="badge badge-success">Out for Delivery</span>
+                    </div>
+
+                    <div style="margin-bottom: 2rem;">
+                        <div style="font-size: 0.875rem; color: var(--color-gray-600); margin-bottom: 0.5rem;">Estimated
+                            Delivery</div>
+                        <div style="font-weight: 600; font-size: 1.25rem; color: var(--color-success);">Today by 8:00 PM
+                        </div>
+                    </div>
+
+                    <!-- Tracking Timeline -->
+                    <div style="position: relative; padding-left: 2rem;">
+                        <div
+                            style="position: absolute; left: 0.625rem; top: 0; bottom: 0; width: 2px; background: var(--color-gray-200);">
+                        </div>
+
+                        <div style="position: relative; margin-bottom: 2rem;">
+                            <div
+                                style="position: absolute; left: -1.375rem; width: 24px; height: 24px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem;">
+                                ✓</div>
+                            <div style="font-weight: 600; margin-bottom: 0.25rem;">Out for Delivery</div>
+                            <div style="color: var(--color-gray-600); font-size: 0.875rem;">Nov 26, 2025 - 10:30 AM
+                            </div>
+                            <div style="color: var(--color-gray-700); font-size: 0.875rem; margin-top: 0.25rem;">Your
+                                package is on the truck and will be delivered today</div>
+                        </div>
+
+                        <div style="position: relative; margin-bottom: 2rem;">
+                            <div
+                                style="position: absolute; left: -1.375rem; width: 24px; height: 24px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem;">
+                                ✓</div>
+                            <div style="font-weight: 600; margin-bottom: 0.25rem;">Arrived at Facility</div>
+                            <div style="color: var(--color-gray-600); font-size: 0.875rem;">Nov 26, 2025 - 6:00 AM</div>
+                            <div style="color: var(--color-gray-700); font-size: 0.875rem; margin-top: 0.25rem;">New
+                                York, NY 10001</div>
+                        </div>
+
+                        <div style="position: relative; margin-bottom: 2rem;">
+                            <div
+                                style="position: absolute; left: -1.375rem; width: 24px; height: 24px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem;">
+                                ✓</div>
+                            <div style="font-weight: 600; margin-bottom: 0.25rem;">In Transit</div>
+                            <div style="color: var(--color-gray-600); font-size: 0.875rem;">Nov 25, 2025 - 2:00 PM</div>
+                        </div>
+
+                        <div style="position: relative;">
+                            <div
+                                style="position: absolute; left: -1.375rem; width: 24px; height: 24px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.75rem;">
+                                ✓</div>
+                            <div style="font-weight: 600; margin-bottom: 0.25rem;">Order Shipped</div>
+                            <div style="color: var(--color-gray-600); font-size: 0.875rem;">Nov 24, 2025 - 9:00 AM</div>
+                            <div style="color: var(--color-gray-700); font-size: 0.875rem; margin-top: 0.25rem;">Package
+                                picked up from warehouse</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <button class="btn btn-outline" onclick="resetTracking()">Track Another Package</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function trackShipment(event) {
+            event.preventDefault();
+            const trackingNumber = document.getElementById('tracking-number').value;
+
+            document.getElementById('result-tracking-number').textContent = trackingNumber;
+            document.getElementById('tracking-form').parentElement.style.display = 'none';
+            document.getElementById('tracking-results').style.display = 'block';
+        }
+
+        function resetTracking() {
+            document.getElementById('tracking-form').parentElement.style.display = 'block';
+            document.getElementById('tracking-results').style.display = 'none';
+            document.getElementById('tracking-form').reset();
+        }
+    </script>
+
+</body>
+
+</html>

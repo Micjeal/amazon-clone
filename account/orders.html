@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Orders - ShopHub</title>
+    <link rel="stylesheet" href="/src/css/main.css">
+    <link rel="stylesheet" href="/src/css/components.css">
+    <link rel="stylesheet" href="/src/css/layout.css">
+</head>
+
+<body>
+
+    <div class="utility-bar">
+        <div class="container">
+            <div class="utility-bar-content">
+                <div><span>🌍 Deliver to United States</span></div>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-main">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🛒</span>
+                    <span class="logo-text hide-mobile">ShopHub</span>
+                </a>
+                <div class="search-container" role="search">
+                    <form class="search-form" action="/search/index.html">
+                        <input type="search" class="search-input" placeholder="Search products...">
+                        <button type="submit" class="search-btn">🔍</button>
+                    </form>
+                </div>
+                <div class="header-actions">
+                    <a href="/cart/index.html" class="cart-icon-wrapper">
+                        <span class="cart-icon">🛒</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin: 2rem 0;">
+                <h1 style="font-size: 2rem; font-weight: bold;">Your Orders</h1>
+                <a href="/account/dashboard.html" style="color: var(--color-accent);">← Back to Account</a>
+            </div>
+
+            <div
+                style="background: white; padding: 1.5rem; border: 1px solid var(--color-gray-200); border-radius: 8px; margin-bottom: 2rem;">
+                <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+                    <input type="search" placeholder="Search all orders"
+                        style="flex: 1; padding: 0.5rem 1rem; border: 1px solid var(--color-gray-300); border-radius: 4px;">
+                    <select style="padding: 0.5rem 1rem; border: 1px solid var(--color-gray-300); border-radius: 4px;">
+                        <option>Last 3 months</option>
+                        <option>Last 6 months</option>
+                        <option>This year</option>
+                        <option>All orders</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="orders-container">
+                <!-- Sample order -->
+                <div
+                    style="background: white; padding: 1.5rem; border: 1px solid var(--color-gray-200); border-radius: 8px; margin-bottom: 1.5rem;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--color-gray-200);">
+                        <div>
+                            <div style="font-size: 0.75rem; color: var(--color-gray-600);">ORDER PLACED</div>
+                            <div style="font-weight: 600;">November 20, 2025</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.75rem; color: var(--color-gray-600);">TOTAL</div>
+                            <div style="font-weight: 600;">$129.99</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.75rem; color: var(--color-gray-600);">ORDER #</div>
+                            <div style="font-weight: 600;">#123-4567890-1234567</div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 1.5rem; align-items: start;">
+                        <img src="/assets/images/products/B07X12345/B07X12345_main_400.jpg" alt="Product"
+                            style="width: 100px; height: 100px; object-fit: contain; border: 1px solid var(--color-gray-200); border-radius: 4px;">
+                        <div style="flex: 1;">
+                            <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Premium Bluetooth Headphones</h3>
+                            <p style="color: var(--color-gray-600); font-size: 0.875rem; margin-bottom: 0.5rem;">
+                                Delivered Nov 25, 2025</p>
+                            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                                <a href="/account/order-details.html" class="btn btn-sm btn-accent">View Order</a>
+                                <button class="btn btn-sm btn-outline">Buy Again</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empty state -->
+                <div id="empty-state"
+                    style="display: none; text-align: center; padding: 4rem; background: white; border: 1px solid var(--color-gray-200); border-radius: 8px;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">📦</div>
+                    <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">No orders yet</h2>
+                    <p style="color: var(--color-gray-600); margin-bottom: 2rem;">Start shopping to see your orders here
+                    </p>
+                    <a href="/" class="btn btn-primary">Continue Shopping</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

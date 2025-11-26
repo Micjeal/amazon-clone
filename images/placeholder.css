@@ -1,0 +1,40 @@
+/* Placeholder images using CSS background colors */
+.product-image[src="/images/products/headphones.jpg"] {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    background-size: cover;
+}
+
+.product-image[src="/images/products/fitness-tracker.jpg"] {
+    background: linear-gradient(45deg, #f093fb, #f5576c);
+    background-size: cover;
+}
+
+.product-image[src="/images/products/water-bottle.jpg"] {
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    background-size: cover;
+}
+
+.product-image[src="/images/products/charging-pad.jpg"] {
+    background: linear-gradient(45deg, #fa709a, #fee140);
+    background-size: cover;
+}
+
+.category-image img[src="/images/categories/electronics.jpg"] {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    background-size: cover;
+}
+
+.category-image img[src="/images/categories/fashion.jpg"] {
+    background: linear-gradient(45deg, #f093fb, #f5576c);
+    background-size: cover;
+}
+
+.category-image img[src="/images/categories/home.jpg"] {
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    background-size: cover;
+}
+
+.category-image img[src="/images/categories/books.jpg"] {
+    background: linear-gradient(45deg, #fa709a, #fee140);
+    background-size: cover;
+}

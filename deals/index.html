@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today's Deals - ShopHub</title>
+    <link rel="stylesheet" href="/src/css/main.css">
+    <link rel="stylesheet" href="/src/css/components.css">
+    <link rel="stylesheet" href="/src/css/layout.css">
+</head>
+
+<body>
+
+    <div class="utility-bar">
+        <div class="container">
+            <div class="utility-bar-content">
+                <div><span>🌍 Deliver to United States</span></div>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-main">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🛒</span>
+                    <span class="logo-text hide-mobile">ShopHub</span>
+                </a>
+                <div class="search-container" role="search">
+                    <form class="search-form" action="/search/index.html">
+                        <input type="search" class="search-input" placeholder="Search products...">
+                        <button type="submit" class="search-btn">🔍</button>
+                    </form>
+                </div>
+                <div class="header-actions">
+                    <a href="/cart/index.html" class="cart-icon-wrapper">
+                        <span class="cart-icon">🛒</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div style="margin: 2rem 0;">
+                <h1 style="font-size: 2rem; font-weight: bold;">⚡ Today's Deals</h1>
+                <p style="color: var(--color-gray-600); margin-top: 0.5rem;">
+                    Limited time offers - Don't miss out!
+                </p>
+            </div>
+
+            <div
+                style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 3rem 2rem; border-radius: 12px; text-align: center; color: white; margin-bottom: 2rem;">
+                <h2 style="font-size: 2rem; margin-bottom: 1rem;">Deal of the Day</h2>
+                <p style="font-size: 1.25rem; margin-bottom: 1rem;">Up to 50% off Electronics</p>
+                <div style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <div style="font-size: 2rem; font-weight: bold;">10</div>
+                        <div style="font-size: 0.875rem;">Hours</div>
+                    </div>
+                    <div style="font-size: 2rem;">:</div>
+                    <div>
+                        <div style="font-size: 2rem; font-weight: bold;">30</div>
+                        <div style="font-size: 0.875rem;">Minutes</div>
+                    </div>
+                    <div style="font-size: 2rem;">:</div>
+                    <div>
+                        <div style="font-size: 2rem; font-weight: bold;">45</div>
+                        <div style="font-size: 0.875rem;">Seconds</div>
+                    </div>
+                </div>
+                <a href="#deals" class="btn btn-primary btn-lg">Shop Now</a>
+            </div>
+
+            <div class="section-header">
+                <h2 class="section-title">Lightning Deals</h2>
+                <p class="section-subtitle">Hurry! These deals won't last long</p>
+            </div>
+
+            <div class="product-grid" id="deals-container">
+                <!-- Deals will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <script type="module">
+        import { getFeaturedDeals } from '/src/js/api.js';
+        import { createProductCard } from '/src/js/main.js';
+
+        async function loadDeals() {
+            const deals = await getFeaturedDeals();
+            const container = document.getElementById('deals-container');
+
+            container.innerHTML = deals.map(product => createProductCard(product)).join('');
+        }
+
+        loadDeals();
+    </script>
+
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

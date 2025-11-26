@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders Management - ShopHub Admin</title>
+    <link rel="stylesheet" href="/src/css/main.css">
+    <link rel="stylesheet" href="/src/css/components.css">
+    <link rel="stylesheet" href="/src/css/layout.css">
+    <style>
+        .admin-layout {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            min-height: 100vh;
+        }
+
+        .admin-sidebar {
+            background: var(--color-gray-900);
+            color: white;
+            padding: 2rem 0;
+        }
+
+        .admin-main {
+            background: var(--color-gray-50);
+            padding: 2rem;
+        }
+
+        .admin-nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1.5rem;
+            color: var(--color-gray-300);
+            text-decoration: none;
+        }
+
+        .admin-nav-link:hover,
+        .admin-nav-link.active {
+            background: var(--color-gray-800);
+            color: white;
+        }
+
+        .admin-table {
+            width: 100%;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .admin-table th {
+            background: var(--color-gray-100);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .admin-table td {
+            padding: 1rem;
+            border-top: 1px solid var(--color-gray-200);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <div style="padding: 0 1.5rem 2rem; border-bottom: 1px solid var(--color-gray-700);">
+                <h1 style="font-size: 1.5rem; font-weight: bold;">ShopHub Admin</h1>
+            </div>
+            <nav style="margin-top: 1rem;">
+                <a href="/admin/index.html" class="admin-nav-link"><span>📊</span><span>Dashboard</span></a>
+                <a href="/admin/products.html" class="admin-nav-link"><span>📦</span><span>Products</span></a>
+                <a href="/admin/orders.html" class="admin-nav-link active"><span>🛒</span><span>Orders</span></a>
+                <a href="/admin/users.html" class="admin-nav-link"><span>👥</span><span>Users</span></a>
+                <a href="/admin/categories.html" class="admin-nav-link"><span>📂</span><span>Categories</span></a>
+                <a href="/admin/promotions.html" class="admin-nav-link"><span>🎁</span><span>Promotions</span></a>
+                <a href="/admin/analytics.html" class="admin-nav-link"><span>📈</span><span>Analytics</span></a>
+            </nav>
+        </aside>
+
+        <main class="admin-main">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <h2 style="font-size: 2rem; font-weight: bold;">Orders Management</h2>
+                <button class="btn btn-primary">📥 Export Orders</button>
+            </div>
+
+            <!-- Filters -->
+            <div style="background: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 1rem;">
+                    <div class="form-group" style="margin: 0;">
+                        <label class="form-label">Search Orders</label>
+                        <input type="search" class="form-input" placeholder="Order ID or customer name...">
+                    </div>
+                    <div class="form-group" style="margin: 0;">
+                        <label class="form-label">Status</label>
+                        <select class="form-select">
+                            <option>All Statuses</option>
+                            <option>Pending</option>
+                            <option>Processing</option>
+                            <option>Shipped</option>
+                            <option>Delivered</option>
+                            <option>Cancelled</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin: 0;">
+                        <label class="form-label">Date Range</label>
+                        <select class="form-select">
+                            <option>Today</option>
+                            <option>Last 7 days</option>
+                            <option>Last 30 days</option>
+                            <option>All time</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin: 0;">
+                        <label class="form-label">&nbsp;</label>
+                        <button class="btn btn-outline">Apply Filters</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orders Table -->
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Date</th>
+                        <th>Items</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#ORD-001</td>
+                        <td>John Doe<br><span
+                                style="font-size: 0.875rem; color: var(--color-gray-600);">john@example.com</span></td>
+                        <td>Nov 20, 2025</td>
+                        <td>2</td>
+                        <td>$259.98</td>
+                        <td>
+                            <select class="form-select" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">
+                                <option>Pending</option>
+                                <option selected>Processing</option>
+                                <option>Shipped</option>
+                                <option>Delivered</option>
+                                <option>Cancelled</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button class="btn btn-sm btn-primary" style="margin-right: 0.25rem;">View Details</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>#ORD-002</td>
+                        <td>Jane Smith<br><span
+                                style="font-size: 0.875rem; color: var(--color-gray-600);">jane@example.com</span></td>
+                        <td>Nov 19, 2025</td>
+                        <td>1</td>
+                        <td>$59.99</td>
+                        <td>
+                            <select class="form-select" style="padding: 0.25rem 0.5rem; font-size: 0.875rem;">
+                                <option>Pending</option>
+                                <option>Processing</option>
+                                <option selected>Shipped</option>
+                                <option>Delivered</option>
+                                <option>Cancelled</option>
+                            </select>
+                        </td>
+                        <td>
+                            <button class="btn btn-sm btn-primary">View Details</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+
+</body>
+
+</html>

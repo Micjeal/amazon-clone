@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - ShopHub</title>
+    <link rel="stylesheet" href="/src/css/main.css">
+    <link rel="stylesheet" href="/src/css/components.css">
+    <link rel="stylesheet" href="/src/css/layout.css">
+</head>
+
+<body>
+
+    <div class="utility-bar">
+        <div class="container">
+            <div class="utility-bar-content">
+                <div><span>🌍 Deliver to United States</span></div>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-main">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🛒</span>
+                    <span class="logo-text hide-mobile">ShopHub</span>
+                </a>
+                <div class="search-container" role="search">
+                    <form class="search-form" action="/search/index.html">
+                        <input type="search" class="search-input" placeholder="Search products...">
+                        <button type="submit" class="search-btn">🔍</button>
+                    </form>
+                </div>
+                <div class="header-actions">
+                    <a href="/cart/index.html" class="cart-icon-wrapper">
+                        <span class="cart-icon">🛒</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container" style="max-width: 800px; margin: 0 auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin: 2rem 0;">
+                <h1 style="font-size: 2rem; font-weight: bold;">🔔 Notifications</h1>
+                <a href="/account/dashboard.html" style="color: var(--color-accent);">← Back</a>
+            </div>
+
+            <div style="background: white; border: 1px solid var(--color-gray-200); border-radius: 8px;">
+                <!-- Notification item -->
+                <div
+                    style="padding: 1.5rem; border-bottom: 1px solid var(--color-gray-200); display: flex; gap: 1rem; background: var(--color-info-light);">
+                    <div style="font-size: 2rem;">📦</div>
+                    <div style="flex: 1;">
+                        <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Order Delivered</h3>
+                        <p style="color: var(--color-gray-700); font-size: 0.875rem; margin-bottom: 0.5rem;">
+                            Your order #123-4567890-1234567 has been delivered
+                        </p>
+                        <p style="font-size: 0.75rem; color: var(--color-gray-600);">2 hours ago</p>
+                    </div>
+                </div>
+
+                <div style="padding: 1.5rem; border-bottom: 1px solid var(--color-gray-200); display: flex; gap: 1rem;">
+                    <div style="font-size: 2rem;">⚡</div>
+                    <div style="flex: 1;">
+                        <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Lightning Deal Alert</h3>
+                        <p style="color: var(--color-gray-700); font-size: 0.875rem; margin-bottom: 0.5rem;">
+                            Item on your wishlist is now on sale - 30% off!
+                        </p>
+                        <p style="font-size: 0.75rem; color: var(--color-gray-600);">5 hours ago</p>
+                    </div>
+                </div>
+
+                <div style="padding: 1.5rem; display: flex; gap: 1rem;">
+                    <div style="font-size: 2rem;">💳</div>
+                    <div style="flex: 1;">
+                        <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Payment Confirmed</h3>
+                        <p style="color: var(--color-gray-700); font-size: 0.875rem; margin-bottom: 0.5rem;">
+                            Your payment for order #123-4567890-1234567 was successful
+                        </p>
+                        <p style="font-size: 0.75rem; color: var(--color-gray-600);">1 day ago</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

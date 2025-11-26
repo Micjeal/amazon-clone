@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password - ShopHub</title>
+    <link rel="stylesheet" href="/src/css/main.css">
+    <link rel="stylesheet" href="/src/css/components.css">
+    <link rel="stylesheet" href="/src/css/layout.css">
+    <style>
+        .auth-container {
+            max-width: 400px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background: white;
+            border: 1px solid var(--color-gray-200);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body style="background: var(--color-gray-50);">
+
+    <div class="auth-container">
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <a href="/" style="font-size: 3rem;">🛒</a>
+            <h1 style="font-size: 1.5rem; margin-top: 0.5rem;">Password Assistance</h1>
+        </div>
+
+        <p style="margin-bottom: 1.5rem; color: var(--color-gray-700);">
+            Enter the email address associated with your ShopHub account.
+        </p>
+
+        <form id="forgot-form" onsubmit="handleForgot(event)">
+            <div class="form-group">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" id="email" class="form-input" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                Continue
+            </button>
+
+            <p style="margin-top: 1rem; text-align: center; font-size: 0.875rem;">
+                <a href="/auth/login.html" class="text-accent">Back to Sign In</a>
+            </p>
+        </form>
+    </div>
+
+    <script>
+        function handleForgot(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            alert(`Password reset link sent to ${email}`);
+            window.location.href = '/auth/login.html';
+        }
+    </script>
+
+</body>
+
+</html>

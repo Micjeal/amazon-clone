@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - ShopHub</title>
+    <link rel="stylesheet" href="/src/css/main.css">
+    <link rel="stylesheet" href="/src/css/components.css">
+    <link rel="stylesheet" href="/src/css/layout.css">
+    <style>
+        .auth-container {
+            max-width: 400px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background: white;
+            border: 1px solid var(--color-gray-200);
+            border-radius: 8px;
+        }
+
+        .auth-logo {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .divider {
+            position: relative;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--color-gray-300);
+        }
+
+        .divider span {
+            position: relative;
+            padding: 0 1rem;
+            background: white;
+            color: var(--color-gray-600);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+
+<body style="background: var(--color-gray-50);">
+
+    <div class="auth-container">
+        <div class="auth-logo">
+            <span style="font-size: 3rem;">🛒</span>
+            <h1 style="font-size: 1.5rem; margin-top: 0.5rem;">ShopHub</h1>
+        </div>
+
+        <h2 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1.5rem;">Sign in to your account</h2>
+
+        <form id="signin-form" onsubmit="handleSignIn(event)">
+            <div class="form-group">
+                <label for="email" class="form-label">Email or phone number</label>
+                <input type="text" id="email" class="form-input" required autofocus>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" class="form-input" required>
+            </div>
+
+            <div class="form-group flex items-center justify-between">
+                <label class="flex items-center gap-2">
+                    <input type="checkbox" class="form-checkbox">
+                    <span style="font-size: 0.875rem;">Remember me</span>
+                </label>
+                <a href="/auth/forgot.html" style="font-size: 0.875rem; color: var(--color-accent);">Forgot
+                    password?</a>
+            </div>
+
+            <button type="submit" class="btn btn-accent" style="width: 100%; margin-bottom: 1rem;">
+                Sign In
+            </button>
+
+            <p style="font-size: 0.75rem; color: var(--color-gray-600); text-align: center; margin-bottom: 1rem;">
+                By continuing, you agree to ShopHub's <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.
+            </p>
+        </form>
+
+        <div class="divider">
+            <span>New to ShopHub?</span>
+        </div>
+
+        <a href="/auth/register.html" class="btn btn-outline" style="width: 100%; display: block; text-align: center;">
+            Create your ShopHub account
+        </a>
+
+        <div class="divider">
+            <span>or sign in with</span>
+        </div>
+
+        <div class="flex gap-3">
+            <button class="btn btn-outline"
+                style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                <span style="font-size: 1.25rem;">G</span> Google
+            </button>
+            <button class="btn btn-outline"
+                style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                <span style="font-size: 1.25rem;">f</span> Facebook
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function handleSignIn(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Mock authentication
+            if (email && password) {
+                localStorage.setItem('user', JSON.stringify({ email, name: 'Demo User' }));
+                alert('Sign in successful!');
+
+                // Redirect to previous page or home
+                const returnUrl = new URLSearchParams(window.location.search).get('return') || '/';
+                window.location.href = returnUrl;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

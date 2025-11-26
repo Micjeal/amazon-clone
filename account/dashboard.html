@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - ShopHub</title>
+    <link rel="stylesheet" href="/src/css/main.css">
+    <link rel="stylesheet" href="/src/css/components.css">
+    <link rel="stylesheet" href="/src/css/layout.css">
+    <style>
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .dashboard-card {
+            padding: 2rem;
+            background: white;
+            border: 1px solid var(--color-gray-200);
+            border-radius: 8px;
+            transition: box-shadow 0.3s;
+        }
+
+        .dashboard-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="utility-bar">
+        <div class="container">
+            <div class="utility-bar-content">
+                <div><span>🌍 Deliver to United States</span></div>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-main">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🛒</span>
+                    <span class="logo-text hide-mobile">ShopHub</span>
+                </a>
+                <div class="search-container" role="search">
+                    <form class="search-form" action="/search/index.html">
+                        <input type="search" class="search-input" placeholder="Search products...">
+                        <button type="submit" class="search-btn">🔍</button>
+                    </form>
+                </div>
+                <div class="header-actions">
+                    <a href="/cart/index.html" class="cart-icon-wrapper">
+                        <span class="cart-icon">🛒</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 style="font-size: 2rem; font-weight: bold; margin: 2rem 0 1rem;">Your Account</h1>
+
+            <div class="dashboard-grid">
+                <a href="/account/orders.html" class="dashboard-card" style="text-decoration: none; color: inherit;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📦</div>
+                    <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Your Orders</h2>
+                    <p style="color: var(--color-gray-600); font-size: 0.875rem;">Track, return, or buy things again</p>
+                </a>
+
+                <a href="/account/profile.html" class="dashboard-card" style="text-decoration: none; color: inherit;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">👤</div>
+                    <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Account Settings</h2>
+                    <p style="color: var(--color-gray-600); font-size: 0.875rem;">Edit login, name, and mobile number
+                    </p>
+                </a>
+
+                <a href="/account/addresses.html" class="dashboard-card" style="text-decoration: none; color: inherit;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">📍</div>
+                    <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Your Addresses</h2>
+                    <p style="color: var(--color-gray-600); font-size: 0.875rem;">Edit addresses for orders and gifts
+                    </p>
+                </a>
+
+                <a href="/account/wishlist.html" class="dashboard-card" style="text-decoration: none; color: inherit;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">❤️</div>
+                    <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Your Wishlist</h2>
+                    <p style="color: var(--color-gray-600); font-size: 0.875rem;">Manage your saved items</p>
+                </a>
+
+                <a href="/account/notifications.html" class="dashboard-card"
+                    style="text-decoration: none; color: inherit;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🔔</div>
+                    <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Notifications</h2>
+                    <p style="color: var(--color-gray-600); font-size: 0.875rem;">View alerts and messages</p>
+                </a>
+
+                <div class="dashboard-card" style="background: var(--color-gray-50);">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎁</div>
+                    <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Prime Membership</h2>
+                    <p style="color: var(--color-gray-600); font-size: 0.875rem; margin-bottom: 1rem;">Get FREE shipping
+                        & exclusive deals</p>
+                    <button class="btn btn-accent btn-sm">Learn More</button>
+                </div>
+            </div>
+
+            <div
+                style="margin-top: 3rem; background: white; padding: 2rem; border: 1px solid var(--color-gray-200); border-radius: 8px;">
+                <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Recent Orders</h2>
+                <p style="color: var(--color-gray-600);">You haven't placed any orders yet.</p>
+                <a href="/" class="btn btn-primary" style="margin-top: 1rem;">Start Shopping</a>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Arrivals - ShopHub</title>
+    <link rel="stylesheet" href="/src/css/main.css">
+    <link rel="stylesheet" href="/src/css/components.css">
+    <link rel="stylesheet" href="/src/css/layout.css">
+</head>
+
+<body>
+
+    <div class="utility-bar">
+        <div class="container">
+            <div class="utility-bar-content">
+                <div><span>🌍 Deliver to United States</span></div>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-main">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🛒</span>
+                    <span class="logo-text hide-mobile">ShopHub</span>
+                </a>
+                <div class="search-container" role="search">
+                    <form class="search-form" action="/search/index.html">
+                        <input type="search" class="search-input" placeholder="Search products...">
+                        <button type="submit" class="search-btn">🔍</button>
+                    </form>
+                </div>
+                <div class="header-actions">
+                    <a href="/cart/index.html" class="cart-icon-wrapper">
+                        <span class="cart-icon">🛒</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div style="margin: 2rem 0;">
+                <h1 style="font-size: 2rem; font-weight: bold;">✨ New Arrivals</h1>
+                <p style="color: var(--color-gray-600); margin-top: 0.5rem;">
+                    Discover our latest products
+                </p>
+            </div>
+
+            <div class="product-grid" id="new-products-container">
+                <!-- New products will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <script type="module">
+        import { fetchProducts } from '/src/js/api.js';
+        import { createProductCard } from '/src/js/main.js';
+
+        async function loadNewProducts() {
+            const products = await fetchProducts({});
+            const container = document.getElementById('new-products-container');
+
+            container.innerHTML = products.map(product => createProductCard(product)).join('');
+        }
+
+        loadNewProducts();
+    </script>
+
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Sellers - ShopHub</title>
+    <link rel="stylesheet" href="/src/css/main.css">
+    <link rel="stylesheet" href="/src/css/components.css">
+    <link rel="stylesheet" href="/src/css/layout.css">
+</head>
+
+<body>
+
+    <div class="utility-bar">
+        <div class="container">
+            <div class="utility-bar-content">
+                <div><span>🌍 Deliver to United States</span></div>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-main">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🛒</span>
+                    <span class="logo-text hide-mobile">ShopHub</span>
+                </a>
+                <div class="search-container" role="search">
+                    <form class="search-form" action="/search/index.html">
+                        <input type="search" class="search-input" placeholder="Search products...">
+                        <button type="submit" class="search-btn">🔍</button>
+                    </form>
+                </div>
+                <div class="header-actions">
+                    <a href="/cart/index.html" class="cart-icon-wrapper">
+                        <span class="cart-icon">🛒</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div style="margin: 2rem 0;">
+                <h1 style="font-size: 2rem; font-weight: bold;">🏆 Best Sellers</h1>
+                <p style="color: var(--color-gray-600); margin-top: 0.5rem;">
+                    Most popular products based on customer reviews and sales
+                </p>
+            </div>
+
+            <div class="product-grid" id="bestsellers-container">
+                <!-- Best sellers will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <script type="module">
+        import { getBestSellers } from '/src/js/api.js';
+        import { createProductCard } from '/src/js/main.js';
+
+        async function loadBestSellers() {
+            const products = await getBestSellers();
+            const container = document.getElementById('bestsellers-container');
+
+            container.innerHTML = products.map(product => createProductCard(product)).join('');
+        }
+
+        loadBestSellers();
+    </script>
+
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

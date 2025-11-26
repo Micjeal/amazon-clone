@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category - ShopHub</title>
+    <link rel="stylesheet" href="/src/css/main.css">
+    <link rel="stylesheet" href="/src/css/components.css">
+    <link rel="stylesheet" href="/src/css/layout.css">
+    <style>
+        .category-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+            .category-layout {
+                grid-template-columns: 250px 1fr;
+            }
+        }
+
+        .filter-sidebar {
+            background: white;
+            padding: 1.5rem;
+            border: 1px solid var(--color-gray-200);
+            border-radius: 8px;
+            height: fit-content;
+        }
+
+        .filter-section {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+
+        .filter-section:last-child {
+            border-bottom: none;
+        }
+
+        .filter-title {
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .sort-select {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--color-gray-300);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="utility-bar">
+        <div class="container">
+            <div class="utility-bar-content">
+                <div><span>🌍 Deliver to United States</span></div>
+                <div class="flex gap-4">
+                    <a href="/deals/index.html">Today's Deals</a>
+                    <a href="/account/orders.html">Returns & Orders</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-main">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🛒</span>
+                    <span class="logo-text hide-mobile">ShopHub</span>
+                </a>
+                <div class="search-container" role="search">
+                    <form class="search-form" action="/search/index.html">
+                        <input type="search" class="search-input" placeholder="Search products...">
+                        <button type="submit" class="search-btn">🔍</button>
+                    </form>
+                </div>
+                <div class="header-actions">
+                    <a href="/cart/index.html" class="cart-icon-wrapper">
+                        <span class="cart-icon">🛒</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="/" class="breadcrumb-link">Home</a>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-item" id="category-name">Electronics</span>
+            </nav>
+
+            <div class="category-layout">
+                <!-- Filters Sidebar -->
+                <aside class="filter-sidebar hide-mobile">
+                    <h2 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1.5rem;">Filters</h2>
+
+                    <div class="filter-section">
+                        <h3 class="filter-title">Price</h3>
+                        <div class="flex flex-col gap-2">
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" class="form-checkbox" value="0-50" data-filter="price">
+                                <span>Under $50</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" class="form-checkbox" value="50-100" data-filter="price">
+                                <span>$50 - $100</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" class="form-checkbox" value="100-200" data-filter="price">
+                                <span>$100 - $200</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" class="form-checkbox" value="200+" data-filter="price">
+                                <span>$200 & Above</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3 class="filter-title">Customer Rating</h3>
+                        <div class="flex flex-col gap-2">
+                            <label class="flex items-center gap-2">
+                                <input type="radio" class="form-radio" name="rating" value="4" data-filter="rating">
+                                <span>⭐⭐⭐⭐ & Up</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="radio" class="form-radio" name="rating" value="3" data-filter="rating">
+                                <span>⭐⭐⭐ & Up</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <h3 class="filter-title">Shipping</h3>
+                        <div class="flex flex-col gap-2">
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" class="form-checkbox" value="prime" data-filter="shipping">
+                                <span class="badge badge-prime">Prime</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" class="form-checkbox" value="free" data-filter="shipping">
+                                <span>Free Shipping</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-outline" style="width: 100%;" onclick="clearFilters()">Clear All</button>
+                </aside>
+
+                <!-- Products Grid -->
+                <div>
+                    <div class="category-header">
+                        <h1 style="font-size: 1.5rem; font-weight: bold;" id="category-title">Electronics</h1>
+                        <div class="flex items-center gap-2">
+                            <label for="sort-select">Sort by:</label>
+                            <select id="sort-select" class="sort-select">
+                                <option value="featured">Featured</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="rating">Customer Rating</option>
+                                <option value="newest">Newest Arrivals</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="product-grid" id="products-container">
+                        <!-- Products will be loaded here -->
+                    </div>
+
+                    <div style="margin-top: 2rem; text-align: center;">
+                        <button class="btn btn-outline" id="load-more">Load More Products</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module">
+        import { fetchProducts } from '/src/js/api.js';
+        import { createProductCard } from '/src/js/main.js';
+
+        const params = new URLSearchParams(window.location.search);
+        const category = params.get('cat') || 'electronics';
+        let allProducts = [];
+        let displayedProducts = [];
+
+        document.getElementById('category-name').textContent = category.charAt(0).toUpperCase() + category.slice(1);
+        document.getElementById('category-title').textContent = category.charAt(0).toUpperCase() + category.slice(1);
+
+        async function loadProducts() {
+            allProducts = await fetchProducts({ category });
+            displayedProducts = [...allProducts];
+            renderProducts();
+        }
+
+        function renderProducts() {
+            const container = document.getElementById('products-container');
+
+            if (displayedProducts.length === 0) {
+                container.innerHTML = '<p style="text-align: center; padding: 4rem;">No products found matching your criteria.</p>';
+                return;
+            }
+
+            container.innerHTML = displayedProducts.map(product => createProductCard(product)).join('');
+
+            // Trigger lazy load refresh
+            setTimeout(() => {
+                if (window.lazyLoader) {
+                    window.lazyLoader.refresh();
+                }
+            }, 100);
+        }
+
+        document.getElementById('sort-select').addEventListener('change', (e) => {
+            const sortBy = e.target.value;
+
+            switch (sortBy) {
+                case 'price-low':
+                    displayedProducts.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    displayedProducts.sort((a, b) => b.price - a.price);
+                    break;
+                case 'rating':
+                    displayedProducts.sort((a, b) => b.rating - a.rating);
+                    break;
+                case 'newest':
+                    displayedProducts.sort((a, b) => (b.newArrival ? 1 : 0) - (a.newArrival ? 1 : 0));
+                    break;
+                default:
+                    displayedProducts = [...allProducts];
+            }
+
+            renderProducts();
+        });
+
+        window.clearFilters = function () {
+            document.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(input => {
+                input.checked = false;
+            });
+            displayedProducts = [...allProducts];
+            renderProducts();
+        };
+
+        loadProducts();
+    </script>
+
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

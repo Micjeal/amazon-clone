@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter - ShopHub</title>
+    <link rel="stylesheet" href="/src/css/main.css">
+    <link rel="stylesheet" href="/src/css/components.css">
+    <link rel="stylesheet" href="/src/css/layout.css">
+</head>
+
+<body>
+
+    <div class="utility-bar">
+        <div class="container">
+            <div class="utility-bar-content">
+                <div><span>🌍 Deliver to United States</span></div>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="header-main">
+                <a href="/" class="logo">
+                    <span class="logo-icon">🛒</span>
+                    <span class="logo-text hide-mobile">ShopHub</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container" style="max-width: 600px; margin: 4rem auto; padding: 0 2rem;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <div style="font-size: 4rem; margin-bottom: 1rem;">📧</div>
+                <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem;">Subscribe to Our Newsletter</h1>
+                <p style="color: var(--color-gray-600); font-size: 1.125rem;">Get exclusive deals, new arrivals, and
+                    special offers delivered to your inbox</p>
+            </div>
+
+            <!-- Benefits List -->
+            <div class="card" style="padding: 2rem; margin-bottom: 2rem;">
+                <h3 style="font-weight: 600; margin-bottom: 1rem;">What You'll Get:</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="display: flex; align-items: start; gap: 0.75rem; margin-bottom: 0.75rem;">
+                        <span style="color: var(--color-success); font-size: 1.25rem;">✓</span>
+                        <span>Exclusive discounts up to 30% off</span>
+                    </li>
+                    <li style="display: flex; align-items: start; gap: 0.75rem; margin-bottom: 0.75rem;">
+                        <span style="color: var(--color-success); font-size: 1.25rem;">✓</span>
+                        <span>Early access to new products</span>
+                    </li>
+                    <li style="display: flex; align-items: start; gap: 0.75rem; margin-bottom: 0.75rem;">
+                        <span style="color: var(--color-success); font-size: 1.25rem;">✓</span>
+                        <span>Special birthday treats</span>
+                    </li>
+                    <li style="display: flex; align-items: start; gap: 0.75rem;">
+                        <span style="color: var(--color-success); font-size: 1.25rem;">✓</span>
+                        <span>Personalized product recommendations</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Subscription Form -->
+            <div class="card" style="padding: 2rem;">
+                <form id="newsletter-form" onsubmit="handleSubscribe(event)">
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" class="form-input" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name" class="form-label">First Name (Optional)</label>
+                        <input type="text" id="name" class="form-input" placeholder="John">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Interests</label>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" class="form-checkbox" value="electronics">
+                                <span style="font-size: 0.875rem;">Electronics</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" class="form-checkbox" value="fashion">
+                                <span style="font-size: 0.875rem;">Fashion</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" class="form-checkbox" value="home">
+                                <span style="font-size: 0.875rem;">Home & Kitchen</span>
+                            </label>
+                            <label class="flex items-center gap-2">
+                                <input type="checkbox" class="form-checkbox" value="books">
+                                <span style="font-size: 0.875rem;">Books</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="flex items-start gap-2">
+                            <input type="checkbox" class="form-checkbox" required>
+                            <span style="font-size: 0.875rem;">I agree to receive marketing emails from ShopHub. You can
+                                unsubscribe at any time.</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Subscribe Now</button>
+
+                    <p style="text-align: center; margin-top: 1rem; font-size: 0.75rem; color: var(--color-gray-600);">
+                        We respect your privacy. Read our <a href="/policies/privacy.html"
+                            style="color: var(--color-accent);">Privacy Policy</a>
+                    </p>
+                </form>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="/" style="color: var(--color-accent); font-weight: 600;">← Back to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function handleSubscribe(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            alert(`Thank you for subscribing! A confirmation email has been sent to ${email}`);
+            document.getElementById('newsletter-form').reset();
+        }
+    </script>
+
+</body>
+
+</html>

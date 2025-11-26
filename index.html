@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop for electronics, fashion, home essentials, and more. Free shipping on Prime orders. Incredible deals and fast delivery.">
+  <title>Amazon-Style Ecommerce - Shop Electronics, Fashion, Home & More</title>
+  
+  <!-- Preconnect to CDN (in production) -->
+  <link rel="preconnect" href="https://cdn.example.com">
+  
+  <!-- Critical CSS -->
+  <link rel="stylesheet" href="/src/css/main.css">
+  <link rel="stylesheet" href="/src/css/components.css">
+  <link rel="stylesheet" href="/src/css/layout.css">
+  <link rel="stylesheet" href="/src/css/carousel.css">
+  <link rel="stylesheet" href="/src/css/category.css">
+  <link rel="stylesheet" href="/src/css/mobile.css">
+  <link rel="stylesheet" href="/images/placeholder.css">
+  
+  <!-- JSON-LD Schema for Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Amazon-Style Store",
+    "url": "https://example.com",
+    "logo": "https://example.com/logo.png"
+  }
+  </script>
+  
+  <!-- Mobile JavaScript -->
+  <script src="/src/js/mobile.js" defer></script>
+</head>
+<body>
+
+  <!-- Top Utility Bar -->
+  <div class="utility-bar">
+    <div class="container">
+      <div class="utility-bar-content">
+        <div>
+          <span>🌍 Deliver to United States</span>
+        </div>
+        <div class="flex gap-4">
+          <a href="/deals/index.html">Today's Deals</a>
+          <a href="/account/orders.html">Returns & Orders</a>
+          <a href="#">Customer Service</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" role="banner">
+    <div class="container">
+      <div class="header-main">
+        
+        <!-- Logo -->
+        <a href="/" class="logo">
+          <span class="logo-icon">🛒</span>
+          <span class="logo-text hide-mobile">ShopHub</span>
+        </a>
+        
+        <!-- Location Picker -->
+        <div class="location-picker" data-modal-trigger="location-modal" role="button" tabindex="0">
+          <span class="location-label">Deliver to</span>
+          <span class="location-text">📍 New York 10001</span>
+        </div>
+        
+        <!-- Search Box -->
+        <div class="search-container" role="search">
+          <form class="search-form" action="/search/index.html" method="get">
+            <select class="search-select" name="category" aria-label="Search category">
+              <option value="">All</option>
+              <option value="electronics">Electronics</option>
+              <option value="fashion">Fashion</option>
+              <option value="home">Home</option>
+              <option value="books">Books</option>
+            </select>
+            <input 
+              type="search" 
+              class="search-input" 
+              name="q" 
+              placeholder="Search products..." 
+              aria-label="Search products"
+              autocomplete="off">
+            <button type="submit" class="search-btn" aria-label="Submit search">
+              🔍
+            </button>
+          </form>
+        </div>
+        
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <a href="/auth/login.html" class="header-action">
+            <span class="header-action-label">Hello, Sign in</span>
+            <span class="header-action-text">Account & Lists</span>
+          </a>
+          
+          <a href="/account/orders.html" class="header-action">
+            <span class="header-action-label">Returns</span>
+            <span class="header-action-text">& Orders</span>
+          </a>
+          
+          <a href="/cart/index.html" class="cart-icon-wrapper">
+            <span class="cart-icon">🛒</span>
+            <span class="cart-count">0</span>
+          </a>
+        </div>
+        
+      </div>
+    </div>
+    
+    <!-- Primary Navigation -->
+    <nav class="primary-nav" role="navigation" aria-label="Primary navigation">
+      <div class="container">
+        <div class="nav-content">
+          <button class="hamburger-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="hamburger-icon">☰</span>
+            <span>All</span>
+          </button>
+          <a href="/category/index.html?cat=electronics" class="nav-link">Electronics</a>
+          <a href="/category/index.html?cat=fashion" class="nav-link">Fashion</a>
+          <a href="/category/index.html?cat=home" class="nav-link">Home & Kitchen</a>
+          <a href="/category/index.html?cat=books" class="nav-link">Books</a>
+          <a href="/deals/index.html" class="nav-link">Today's Deals</a>
+          <a href="/best-sellers/index.html" class="nav-link">Best Sellers</a>
+          <a href="/new/index.html" class="nav-link">New Releases</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+  
+  <!-- Mobile Menu -->
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+    <div class="mobile-menu-header">
+      <span class="logo">
+        <span class="logo-icon">🛒</span>
+        <span class="logo-text">ShopHub</span>
+      </span>
+      <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">×</button>
+    </div>
+    <div class="mobile-menu-content">
+      <div class="mobile-menu-section">
+        <h3 class="mobile-menu-title">Shop by Category</h3>
+        <div class="mobile-menu-links">
+          <a href="/category/index.html?cat=electronics" class="mobile-menu-link">Electronics</a>
+          <a href="/category/index.html?cat=fashion" class="mobile-menu-link">Fashion</a>
+          <a href="/category/index.html?cat=home" class="mobile-menu-link">Home & Kitchen</a>
+          <a href="/category/index.html?cat=books" class="mobile-menu-link">Books</a>
+        </div>
+      </div>
+      <div class="mobile-menu-section">
+        <h3 class="mobile-menu-title">Programs & Features</h3>
+        <div class="mobile-menu-links">
+          <a href="/deals/index.html" class="mobile-menu-link">Today's Deals</a>
+          <a href="/best-sellers/index.html" class="mobile-menu-link">Best Sellers</a>
+          <a href="/new/index.html" class="mobile-menu-link">New Releases</a>
+        </div>
+      </div>
+      <div class="mobile-menu-section">
+        <h3 class="mobile-menu-title">Account</h3>
+        <div class="mobile-menu-links">
+          <a href="/auth/login.html" class="mobile-menu-link">Sign In</a>
+          <a href="/account/orders.html" class="mobile-menu-link">Your Orders</a>
+          <a href="#" class="mobile-menu-link">Customer Service</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main role="main">
+    
+    <!-- Hero Carousel -->
+    <section class="hero-section">
+      <div class="carousel" data-autoplay="true" data-interval="6000" aria-label="Featured promotions">
+        <div class="carousel-track" style="display: flex; width: 300%; transition: transform 0.5s ease-in-out;">
+          
+          <!-- Slide 1 - Electronics -->
+          <div class="slide" style="flex: 0 0 100%; min-width: 100%; height: 400px; background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%), url('https://images.unsplash.com/photo-1498049794561-7780e7231661?w=1200&h=400&fit=crop') center/cover; display: flex; align-items: center; justify-content: center; color: white; position: relative;">
+            <div class="slide-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3);"></div>
+            <div class="slide-content" style="position: relative; z-index: 2; text-align: center; max-width: 600px; padding: 0 2rem;">
+              <h2 style="font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Electronics Sale</h2>
+              <p style="font-size: clamp(1rem, 3vw, 1.5rem); margin-bottom: 2rem; opacity: 0.95; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">Up to 50% off on top brands including laptops, phones & more</p>
+              <a href="/deals/index.html" class="btn btn-primary btn-lg" style="box-shadow: 0 4px 15px rgba(0,0,0,0.2); font-weight: 600;">Shop Electronics</a>
+            </div>
+          </div>
+          
+          <!-- Slide 2 - Fashion -->
+          <div class="slide" style="flex: 0 0 100%; min-width: 100%; height: 400px; background: linear-gradient(135deg, rgba(240, 147, 251, 0.9) 0%, rgba(245, 87, 108, 0.9) 100%), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=400&fit=crop') center/cover; display: flex; align-items: center; justify-content: center; color: white; position: relative;" aria-hidden="true">
+            <div class="slide-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3);"></div>
+            <div class="slide-content" style="position: relative; z-index: 2; text-align: center; max-width: 600px; padding: 0 2rem;">
+              <h2 style="font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Fashion Deals</h2>
+              <p style="font-size: clamp(1rem, 3vw, 1.5rem); margin-bottom: 2rem; opacity: 0.95; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">New arrivals & exclusive styles for every season</p>
+              <a href="/category/index.html?cat=fashion" class="btn btn-primary btn-lg" style="box-shadow: 0 4px 15px rgba(0,0,0,0.2); font-weight: 600;">Discover Fashion</a>
+            </div>
+          </div>
+          
+          <!-- Slide 3 - Home -->
+          <div class="slide" style="flex: 0 0 100%; min-width: 100%; height: 400px; background: linear-gradient(135deg, rgba(79, 172, 254, 0.9) 0%, rgba(0, 242, 254, 0.9) 100%), url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&h=400&fit=crop') center/cover; display: flex; align-items: center; justify-content: center; color: white; position: relative;" aria-hidden="true">
+            <div class="slide-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.3);"></div>
+            <div class="slide-content" style="position: relative; z-index: 2; text-align: center; max-width: 600px; padding: 0 2rem;">
+              <h2 style="font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Home Essentials</h2>
+              <p style="font-size: clamp(1rem, 3vw, 1.5rem); margin-bottom: 2rem; opacity: 0.95; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">Transform your space with furniture, decor & appliances</p>
+              <a href="/category/index.html?cat=home" class="btn btn-primary btn-lg" style="box-shadow: 0 4px 15px rgba(0,0,0,0.2); font-weight: 600;">Shop Home</a>
+            </div>
+          </div>
+          
+        </div>
+        
+        <button class="carousel-btn carousel-prev" aria-label="Previous slide">‹</button>
+        <button class="carousel-btn carousel-next" aria-label="Next slide">›</button>
+        
+        <div class="carousel-indicators">
+          <button class="carousel-indicator active" aria-label="Go to slide 1"></button>
+          <button class="carousel-indicator" aria-label="Go to slide 2"></button>
+          <button class="carousel-indicator" aria-label="Go to slide 3"></button>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Featured Products Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Featured Products</h2>
+          <p class="section-subtitle">Discover our top picks and trending items</p>
+        </div>
+        
+        <div class="product-grid">
+          <div class="product-card">
+            <a href="#" class="product-link">
+              <div class="product-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop" alt="Premium Wireless Headphones" class="product-image">
+                <div class="product-badge">
+                  <span class="badge badge-bestseller">Bestseller</span>
+                </div>
+              </div>
+              <h3 class="product-title">Premium Wireless Headphones with Noise Cancellation</h3>
+              <div class="product-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-count">(1,234)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-current">$89.99</span>
+                <span class="price-original">$129.99</span>
+                <span class="price-discount">31% off</span>
+              </div>
+              <div class="product-shipping">FREE delivery tomorrow</div>
+            </a>
+          </div>
+          
+          <div class="product-card">
+            <a href="#" class="product-link">
+              <div class="product-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=200&h=200&fit=crop" alt="Smart Fitness Tracker" class="product-image">
+                <div class="product-badge">
+                  <span class="badge badge-prime">Prime</span>
+                </div>
+              </div>
+              <h3 class="product-title">Smart Fitness Tracker with Heart Rate Monitor</h3>
+              <div class="product-rating">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-count">(856)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-current">$49.99</span>
+                <span class="price-original">$79.99</span>
+                <span class="price-discount">38% off</span>
+              </div>
+              <div class="product-shipping">FREE delivery with Prime</div>
+            </a>
+          </div>
+          
+          <div class="product-card">
+            <a href="#" class="product-link">
+              <div class="product-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=200&h=200&fit=crop" alt="Eco-Friendly Water Bottle" class="product-image">
+                <div class="product-badge">
+                  <span class="badge badge-deal">Deal</span>
+                </div>
+              </div>
+              <h3 class="product-title">Eco-Friendly Water Bottle with Temperature Display</h3>
+              <div class="product-rating">
+                <span class="stars">★★★★★</span>
+                <span class="rating-count">(2,103)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-current">$24.99</span>
+                <span class="price-original">$39.99</span>
+                <span class="price-discount">38% off</span>
+              </div>
+              <div class="product-shipping">FREE delivery Thu, Dec 14</div>
+            </a>
+          </div>
+          
+          <div class="product-card">
+            <a href="#" class="product-link">
+              <div class="product-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=200&h=200&fit=crop" alt="Wireless Charging Pad" class="product-image">
+                <div class="product-badge">
+                  <span class="badge badge-new">New</span>
+                </div>
+              </div>
+              <h3 class="product-title">Wireless Charging Pad for All Devices</h3>
+              <div class="product-rating">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-count">(445)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-current">$19.99</span>
+              </div>
+              <div class="product-shipping">FREE delivery with Prime</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Promotional Banners -->
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="promo-tile" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)), url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=300&h=200&fit=crop') center/cover; padding: 2rem; border-radius: 8px; text-align: center; color: white;">
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Prime Membership</h3>
+            <p style="font-size: 0.875rem;">Free 2-day shipping</p>
+          </div>
+          <div class="promo-tile" style="background: linear-gradient(135deg, rgba(240, 147, 251, 0.9), rgba(245, 87, 108, 0.9)), url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop') center/cover; padding: 2rem; border-radius: 8px; text-align: center; color: white;">
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Free Shipping</h3>
+            <p style="font-size: 0.875rem;">On orders over $25</p>
+          </div>
+          <div class="promo-tile" style="background: linear-gradient(135deg, rgba(79, 172, 254, 0.9), rgba(0, 242, 254, 0.9)), url('https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?w=300&h=200&fit=crop') center/cover; padding: 2rem; border-radius: 8px; text-align: center; color: white;">
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Easy Returns</h3>
+            <p style="font-size: 0.875rem;">30-day return policy</p>
+          </div>
+          <div class="promo-tile" style="background: linear-gradient(135deg, rgba(250, 112, 154, 0.9), rgba(254, 225, 64, 0.9)), url('https://images.unsplash.com/photo-1553484771-371a605b060b?w=300&h=200&fit=crop') center/cover; padding: 2rem; border-radius: 8px; text-align: center; color: white;">
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">24/7 Support</h3>
+            <p style="font-size: 0.875rem;">Customer service</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Lightning Deals -->
+    <section class="section bg-gray-50">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">⚡ Lightning Deals</h2>
+          <p class="section-subtitle">Limited time offers - Don't miss out!</p>
+        </div>
+        
+        <div class="horizontal-scroller" id="deals-container">
+          <div class="scroll-item">
+            <div class="product-card">
+              <a href="#" class="product-link">
+                <div class="product-image-wrapper">
+                  <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop" alt="Premium Bluetooth Headphones" class="product-image">
+                  <div class="product-badge">
+                    <span class="badge badge-bestseller">Best Seller</span>
+                  </div>
+                </div>
+                <h3 class="product-title">Premium Bluetooth Headphones</h3>
+              </a>
+              <div class="product-rating">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-count">(2,847)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-current">$129.99</span>
+                <span class="price-original">$199.99</span>
+                <span class="price-discount">-35%</span>
+              </div>
+              <div class="product-shipping">FREE Prime delivery</div>
+            </div>
+          </div>
+          <div class="scroll-item">
+            <div class="product-card">
+              <a href="#" class="product-link">
+                <div class="product-image-wrapper">
+                  <img src="https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=200&h=200&fit=crop" alt="Smart Watch Pro" class="product-image">
+                </div>
+                <h3 class="product-title">Smart Watch Pro</h3>
+              </a>
+              <div class="product-rating">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-count">(3,241)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-current">$299.99</span>
+                <span class="price-original">$399.99</span>
+                <span class="price-discount">-25%</span>
+              </div>
+              <div class="product-shipping">FREE Prime delivery</div>
+            </div>
+          </div>
+          <div class="scroll-item">
+            <div class="product-card">
+              <a href="#" class="product-link">
+                <div class="product-image-wrapper">
+                  <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=200&h=200&fit=crop" alt="Portable Power Bank" class="product-image">
+                </div>
+                <h3 class="product-title">Portable Power Bank 20000mAh</h3>
+              </a>
+              <div class="product-rating">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-count">(5,621)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-current">$39.99</span>
+                <span class="price-original">$59.99</span>
+                <span class="price-discount">-33%</span>
+              </div>
+              <div class="product-shipping">FREE Prime delivery</div>
+            </div>
+          </div>
+          <div class="scroll-item">
+            <div class="product-card">
+              <a href="#" class="product-link">
+                <div class="product-image-wrapper">
+                  <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop" alt="Running Shoes" class="product-image">
+                </div>
+                <h3 class="product-title">Running Shoes Ultralight</h3>
+              </a>
+              <div class="product-rating">
+                <span class="stars">★★★★☆</span>
+                <span class="rating-count">(1,234)</span>
+              </div>
+              <div class="product-price">
+                <span class="price-current">$89.99</span>
+                <span class="price-original">$129.99</span>
+                <span class="price-discount">-31%</span>
+              </div>
+              <div class="product-shipping">FREE Prime delivery</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Top Picks For You -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Top picks for you</h2>
+          <p class="section-subtitle">Based on your browsing history</p>
+        </div>
+        
+        <div class="product-grid" id="recommendations-container">
+          <div class="product-card">
+            <a href="#" class="product-link">
+              <div class="product-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=200&h=200&fit=crop" alt="Coffee Maker" class="product-image">
+                <div class="product-badge">
+                  <span class="badge badge-bestseller">Best Seller</span>
+                </div>
+              </div>
+              <h3 class="product-title">Coffee Maker Deluxe</h3>
+            </a>
+            <div class="product-rating">
+              <span class="stars">★★★★☆</span>
+              <span class="rating-count">(987)</span>
+            </div>
+            <div class="product-price">
+              <span class="price-current">$119.99</span>
+              <span class="price-original">$159.99</span>
+              <span class="price-discount">-25%</span>
+            </div>
+            <div class="product-shipping">FREE Prime delivery</div>
+          </div>
+          <div class="product-card">
+            <a href="#" class="product-link">
+              <div class="product-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=200&h=200&fit=crop" alt="Book" class="product-image">
+                <div class="product-badge">
+                  <span class="badge badge-bestseller">Best Seller</span>
+                </div>
+              </div>
+              <h3 class="product-title">The Midnight Library</h3>
+            </a>
+            <div class="product-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-count">(12,453)</span>
+            </div>
+            <div class="product-price">
+              <span class="price-current">$14.99</span>
+              <span class="price-original">$19.99</span>
+              <span class="price-discount">-25%</span>
+            </div>
+            <div class="product-shipping">FREE Prime delivery</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Best Sellers -->
+    <section class="section bg-gray-50">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">🏆 Best Sellers</h2>
+          <p class="section-subtitle">Most popular products this month</p>
+        </div>
+        
+        <div class="product-grid" id="bestsellers-container">
+          <div class="product-card">
+            <a href="#" class="product-link">
+              <div class="product-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=200&fit=crop" alt="Gaming Keyboard" class="product-image">
+                <div class="product-badge">
+                  <span class="badge badge-bestseller">Best Seller</span>
+                </div>
+              </div>
+              <h3 class="product-title">Mechanical Gaming Keyboard</h3>
+            </a>
+            <div class="product-rating">
+              <span class="stars">★★★★★</span>
+              <span class="rating-count">(4,567)</span>
+            </div>
+            <div class="product-price">
+              <span class="price-current">$79.99</span>
+              <span class="price-original">$99.99</span>
+              <span class="price-discount">-20%</span>
+            </div>
+            <div class="product-shipping">FREE Prime delivery</div>
+          </div>
+          <div class="product-card">
+            <a href="#" class="product-link">
+              <div class="product-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=200&h=200&fit=crop" alt="Desk Organizer" class="product-image">
+              </div>
+              <h3 class="product-title">Bamboo Desk Organizer</h3>
+            </a>
+            <div class="product-rating">
+              <span class="stars">★★★★☆</span>
+              <span class="rating-count">(2,341)</span>
+            </div>
+            <div class="product-price">
+              <span class="price-current">$29.99</span>
+            </div>
+            <div class="product-shipping">FREE Prime delivery</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Shop by Category -->
+    <section class="section bg-gray-50">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Shop by Category</h2>
+          <p class="section-subtitle">Explore our wide range of products</p>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <a href="/category/index.html?cat=electronics" class="category-card">
+            <div class="category-image">
+              <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?w=300&h=200&fit=crop" alt="Electronics" loading="lazy">
+              <div class="category-overlay">
+                <span class="category-icon">💻</span>
+              </div>
+            </div>
+            <div class="category-content">
+              <h3 class="category-title">Electronics</h3>
+              <p class="category-subtitle">Latest tech & gadgets</p>
+              <span class="category-cta">Shop now →</span>
+            </div>
+          </a>
+          
+          <a href="/category/index.html?cat=fashion" class="category-card">
+            <div class="category-image">
+              <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=300&h=200&fit=crop" alt="Fashion" loading="lazy">
+              <div class="category-overlay">
+                <span class="category-icon">👗</span>
+              </div>
+            </div>
+            <div class="category-content">
+              <h3 class="category-title">Fashion</h3>
+              <p class="category-subtitle">Trending styles</p>
+              <span class="category-cta">Shop now →</span>
+            </div>
+          </a>
+          
+          <a href="/category/index.html?cat=home" class="category-card">
+            <div class="category-image">
+              <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=200&fit=crop" alt="Home & Kitchen" loading="lazy">
+              <div class="category-overlay">
+                <span class="category-icon">🏠</span>
+              </div>
+            </div>
+            <div class="category-content">
+              <h3 class="category-title">Home & Kitchen</h3>
+              <p class="category-subtitle">Transform your space</p>
+              <span class="category-cta">Shop now →</span>
+            </div>
+          </a>
+          
+          <a href="/category/index.html?cat=books" class="category-card">
+            <div class="category-image">
+              <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=200&fit=crop" alt="Books" loading="lazy">
+              <div class="category-overlay">
+                <span class="category-icon">📚</span>
+              </div>
+            </div>
+            <div class="category-content">
+              <h3 class="category-title">Books</h3>
+              <p class="category-subtitle">Bestsellers & more</p>
+              <span class="category-cta">Shop now →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-section">
+          <h4>Get to Know Us</h4>
+          <div class="footer-links">
+            <a href="#" class="footer-link">About Us</a>
+            <a href="#" class="footer-link">Careers</a>
+            <a href="#" class="footer-link">Press Releases</a>
+            <a href="#" class="footer-link">Investor Relations</a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Make Money with Us</h4>
+          <div class="footer-links">
+            <a href="#" class="footer-link">Sell products</a>
+            <a href="#" class="footer-link">Become an Affiliate</a>
+            <a href="#" class="footer-link">Advertise Your Products</a>
+            <a href="#" class="footer-link">Host a Hub</a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Payment Products</h4>
+          <div class="footer-links">
+            <a href="#" class="footer-link">Business Card</a>
+            <a href="#" class="footer-link">Shop with Points</a>
+            <a href="#" class="footer-link">Reload Your Balance</a>
+            <a href="#" class="footer-link">Currency Converter</a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Let Us Help You</h4>
+          <div class="footer-links">
+            <a href="#" class="footer-link">Your Account</a>
+            <a href="#" class="footer-link">Your Orders</a>
+            <a href="#" class="footer-link">Shipping Rates</a>
+            <a href="#" class="footer-link">Returns & Replacements</a>
+            <a href="#" class="footer-link">Help</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <div class="footer-country-selector">
+            🌍 United States
+          </div>
+          <div class="footer-copyright">
+            © 2024 ShopHub. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- Modal Backdrop -->
+  <div class="modal-backdrop"></div>
+
+  <!-- Location Modal -->
+  <div id="location-modal" class="modal" role="dialog" aria-labelledby="location-modal-title" aria-modal="true">
+    <div class="modal-header">
+      <h2 id="location-modal-title" class="modal-title">Choose your location</h2>
+      <button class="modal-close" data-modal-close aria-label="Close modal">×</button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="zip-input" class="form-label">Enter your ZIP code</label>
+          <input type="text" id="zip-input" class="form-input" placeholder="e.g., 10001">
+        </div>
+        <button type="submit" class="btn btn-primary">Apply</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Sign-in Modal -->
+  <div id="signin-modal" class="modal" role="dialog" aria-labelledby="signin-modal-title" aria-modal="true">
+    <div class="modal-header">
+      <h2 id="signin-modal-title" class="modal-title">Sign in</h2>
+      <button class="modal-close" data-modal-close aria-label="Close modal">×</button>
+    </div>
+    <div class="modal-body">
+      <form action="/auth/login.html">
+        <div class="form-group">
+          <label for="email-input" class="form-label">Email or phone number</label>
+          <input type="text" id="email-input" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label for="password-input" class="form-label">Password</label>
+          <input type="password" id="password-input" class="form-input" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Sign in</button>
+        <p style="margin-top: 1rem; text-align: center; font-size: 0.875rem;">
+          New customer? <a href="/auth/register.html">Create an account</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script type="module" src="/src/js/main.js"></script>
+  
+  <!-- Inline script to load products -->
+  <script type="module">
+    import { fetchProducts, getFeaturedDeals, getRecommendations, getBestSellers } from '/src/js/api.js';
+    import { createProductCard } from '/src/js/main.js';
+    
+    // Load lightning deals
+    async function loadDeals() {
+      const container = document.getElementById('deals-container');
+      const deals = await getFeaturedDeals();
+      
+      deals.forEach(product => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'scroll-item';
+        wrapper.innerHTML = createProductCard(product);
+        container.appendChild(wrapper);
+      });
+    }
+    
+    // Load recommendations
+    async function loadRecommendations() {
+      const container = document.getElementById('recommendations-container');
+      const products = await getRecommendations();
+      
+      products.slice(0, 8).forEach(product => {
+        const wrapper = document.createElement('div');
+        wrapper.innerHTML = createProductCard(product);
+        container.appendChild(wrapper.firstElementChild);
+      });
+    }
+    
+    // Load best sellers
+    async function loadBestSellers() {
+      const container = document.getElementById('bestsellers-container');
+      const products = await getBestSellers();
+      
+      products.slice(0, 4).forEach(product => {
+        const wrapper = document.createElement('div');
+        wrapper.innerHTML = createProductCard(product);
+        container.appendChild(wrapper.firstElementChild);
+      });
+    }
+    
+    // Initialize
+    loadDeals();
+    loadRecommendations();
+    loadBestSellers();
+  </script>
+
+</body>
+</html>
