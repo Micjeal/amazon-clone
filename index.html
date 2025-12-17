@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -39,7 +39,7 @@
     <div class="container">
       <div class="utility-bar-content">
         <div>
-          <span>🌍 Deliver to United States</span>
+          <span>🌍 Deliver to AnyWhere</span>
         </div>
         <div class="flex gap-4">
           <a href="/deals/index.html">Today's Deals</a>
@@ -57,7 +57,21 @@
         
         <!-- Logo -->
         <a href="/" class="logo">
-          <span class="logo-icon">🛒</span>
+          <span class="logo-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="bagGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+                  <stop offset="50%" style="stop-color:#FF8E53;stop-opacity:1" />
+                  <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                </linearGradient>
+              </defs>
+              <path d="M6 10L8 26C8.2 27.7 9.6 29 11.3 29H20.7C22.4 29 23.8 27.7 24 26L26 10H6Z" fill="url(#bagGradient)" stroke="url(#bagGradient)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M11 13V8C11 5.2 13.2 3 16 3C18.8 3 21 5.2 21 8V13" stroke="url(#bagGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <circle cx="12" cy="16" r="1.5" fill="#FFF"/>
+              <circle cx="20" cy="16" r="1.5" fill="#FFF"/>
+            </svg>
+          </span>
           <span class="logo-text hide-mobile">ShopHub</span>
         </a>
         
@@ -103,7 +117,21 @@
           </a>
           
           <a href="/cart/index.html" class="cart-icon-wrapper">
-            <span class="cart-icon">🛒</span>
+            <span class="cart-icon">
+              <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="cartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#FF8E53;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <path d="M6 10L8 26C8.2 27.7 9.6 29 11.3 29H20.7C22.4 29 23.8 27.7 24 26L26 10H6Z" fill="url(#cartGradient)" stroke="url(#cartGradient)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M11 13V8C11 5.2 13.2 3 16 3C18.8 3 21 5.2 21 8V13" stroke="url(#cartGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <circle cx="12" cy="16" r="1.5" fill="#FFF"/>
+                <circle cx="20" cy="16" r="1.5" fill="#FFF"/>
+              </svg>
+            </span>
             <span class="cart-count">0</span>
           </a>
         </div>
@@ -138,7 +166,21 @@
   <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
     <div class="mobile-menu-header">
       <span class="logo">
-        <span class="logo-icon">🛒</span>
+        <span class="logo-icon">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="bagGradientMobile" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+                <stop offset="50%" style="stop-color:#FF8E53;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+              </linearGradient>
+            </defs>
+            <path d="M6 10L8 26C8.2 27.7 9.6 29 11.3 29H20.7C22.4 29 23.8 27.7 24 26L26 10H6Z" fill="url(#bagGradientMobile)" stroke="url(#bagGradientMobile)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M11 13V8C11 5.2 13.2 3 16 3C18.8 3 21 5.2 21 8V13" stroke="url(#bagGradientMobile)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <circle cx="12" cy="16" r="1.5" fill="#FFF"/>
+            <circle cx="20" cy="16" r="1.5" fill="#FFF"/>
+          </svg>
+        </span>
         <span class="logo-text">ShopHub</span>
       </span>
       <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">×</button>
@@ -166,7 +208,7 @@
         <div class="mobile-menu-links">
           <a href="/auth/login.html" class="mobile-menu-link">Sign In</a>
           <a href="/account/orders.html" class="mobile-menu-link">Your Orders</a>
-          <a href="#" class="mobile-menu-link">Customer Service</a>
+          <a href="/customer-service/index.html" class="mobile-menu-link">Customer Service</a>
         </div>
       </div>
     </div>
@@ -352,13 +394,13 @@
           <h2 class="section-title">⚡ Lightning Deals</h2>
           <p class="section-subtitle">Limited time offers - Don't miss out!</p>
         </div>
-        
+
         <div class="horizontal-scroller" id="deals-container">
           <div class="scroll-item">
             <div class="product-card">
               <a href="#" class="product-link">
                 <div class="product-image-wrapper">
-                  <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop" alt="Premium Bluetooth Headphones" class="product-image">
+                  <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&amp;h=200&amp;fit=crop" alt="Premium Bluetooth Headphones" class="product-image">
                   <div class="product-badge">
                     <span class="badge badge-bestseller">Best Seller</span>
                   </div>
@@ -381,7 +423,7 @@
             <div class="product-card">
               <a href="#" class="product-link">
                 <div class="product-image-wrapper">
-                  <img src="https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=200&h=200&fit=crop" alt="Smart Watch Pro" class="product-image">
+                  <img src="https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=200&amp;h=200&amp;fit=crop" alt="Smart Watch Pro" class="product-image">
                 </div>
                 <h3 class="product-title">Smart Watch Pro</h3>
               </a>
@@ -401,7 +443,7 @@
             <div class="product-card">
               <a href="#" class="product-link">
                 <div class="product-image-wrapper">
-                  <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=200&h=200&fit=crop" alt="Portable Power Bank" class="product-image">
+                  <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=200&amp;h=200&amp;fit=crop" alt="Portable Power Bank" class="product-image">
                 </div>
                 <h3 class="product-title">Portable Power Bank 20000mAh</h3>
               </a>
@@ -421,7 +463,7 @@
             <div class="product-card">
               <a href="#" class="product-link">
                 <div class="product-image-wrapper">
-                  <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&h=200&fit=crop" alt="Running Shoes" class="product-image">
+                  <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=200&amp;h=200&amp;fit=crop" alt="Running Shoes" class="product-image">
                 </div>
                 <h3 class="product-title">Running Shoes Ultralight</h3>
               </a>
@@ -437,7 +479,247 @@
               <div class="product-shipping">FREE Prime delivery</div>
             </div>
           </div>
+        <div class="scroll-item">
+    <article class="product-card" data-product-id="B07X12345" data-category="electronics" data-price="129.99" data-availability="in_stock">
+      
+      <a href="/product/index.html?id=B07X12345" class="product-link">
+        <div class="product-image-wrapper">
+          
+            <div class="product-badge">
+              <span class="badge badge-bestseller">BESTSELLER</span>
+              <span class="badge badge-prime">PRIME</span>
+              
+              <span class="badge badge-deal">DEAL</span>
+            </div>
+          
+          <img class="product-image" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&amp;h=400&amp;fit=crop" alt="AudioTech Premium Bluetooth Headphones" width="400" height="400">
         </div>
+        
+        <h3 class="product-title">Premium Bluetooth Headphones</h3>
+      </a>
+      
+      <div class="product-rating">
+        <span class="stars">★★★★☆</span>
+        <span class="rating-count">(2,847)</span>
+      </div>
+      
+      <div class="product-price">
+        <span class="price-current">$129.99</span>
+        
+          <span class="price-original">$199.99</span>
+          <span class="price-discount">35% off</span>
+        
+      </div>
+      
+      <div class="product-shipping">FREE delivery with Prime</div>
+      
+      <div class="product-actions">
+        <button class="btn btn-sm btn-primary" data-add-to-cart="" data-product-id="B07X12345" data-product="{"id":"B07X12345","title":"Premium Bluetooth Headphones","brand":"AudioTech","category":"electronics","price":129.99,"originalPrice":199.99,"discount":35,"rating":4.5,"reviewCount":2847,"prime":true,"inStock":true,"bestSeller":true,"imageUrl":"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&amp;h=400&amp;fit=crop","description":"Premium wireless headphones with active noise cancellation","specifications":{"color":"Black","connectivity":"Bluetooth 5.0","batteryLife":"30 hours"}}">
+          Add to Cart
+        </button>
+      </div>
+    </article>
+  </div><div class="scroll-item">
+    <article class="product-card" data-product-id="B09Z34567" data-category="electronics" data-price="299.99" data-availability="in_stock">
+      
+      <a href="/product/index.html?id=B09Z34567" class="product-link">
+        <div class="product-image-wrapper">
+          
+            <div class="product-badge">
+              
+              <span class="badge badge-prime">PRIME</span>
+              
+              <span class="badge badge-deal">DEAL</span>
+            </div>
+          
+          <img class="product-image" src="https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=400&amp;h=400&amp;fit=crop" alt="TechFit Smart Watch Pro" width="400" height="400">
+        </div>
+        
+        <h3 class="product-title">Smart Watch Pro</h3>
+      </a>
+      
+      <div class="product-rating">
+        <span class="stars">★★★★☆</span>
+        <span class="rating-count">(3,241)</span>
+      </div>
+      
+      <div class="product-price">
+        <span class="price-current">$299.99</span>
+        
+          <span class="price-original">$399.99</span>
+          <span class="price-discount">25% off</span>
+        
+      </div>
+      
+      <div class="product-shipping">FREE delivery with Prime</div>
+      
+      <div class="product-actions">
+        <button class="btn btn-sm btn-primary" data-add-to-cart="" data-product-id="B09Z34567" data-product="{"id":"B09Z34567","title":"Smart Watch Pro","brand":"TechFit","category":"electronics","price":299.99,"originalPrice":399.99,"discount":25,"rating":4.6,"reviewCount":3241,"prime":true,"inStock":true,"imageUrl":"https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=400&amp;h=400&amp;fit=crop","description":"Advanced fitness tracker with heart rate monitoring","specifications":{"color":"Silver","display":"AMOLED","waterResistance":"50m"}}">
+          Add to Cart
+        </button>
+      </div>
+    </article>
+  </div><div class="scroll-item">
+    <article class="product-card" data-product-id="B11B56789" data-category="electronics" data-price="39.99" data-availability="in_stock">
+      
+      <a href="/product/index.html?id=B11B56789" class="product-link">
+        <div class="product-image-wrapper">
+          
+            <div class="product-badge">
+              
+              <span class="badge badge-prime">PRIME</span>
+              
+              <span class="badge badge-deal">DEAL</span>
+            </div>
+          
+          <img class="product-image" src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&amp;h=400&amp;fit=crop" alt="ChargePlus Portable Power Bank 20000mAh" width="400" height="400">
+        </div>
+        
+        <h3 class="product-title">Portable Power Bank 20000mAh</h3>
+      </a>
+      
+      <div class="product-rating">
+        <span class="stars">★★★★☆</span>
+        <span class="rating-count">(5,621)</span>
+      </div>
+      
+      <div class="product-price">
+        <span class="price-current">$39.99</span>
+        
+          <span class="price-original">$59.99</span>
+          <span class="price-discount">33% off</span>
+        
+      </div>
+      
+      <div class="product-shipping">FREE delivery with Prime</div>
+      
+      <div class="product-actions">
+        <button class="btn btn-sm btn-primary" data-add-to-cart="" data-product-id="B11B56789" data-product="{"id":"B11B56789","title":"Portable Power Bank 20000mAh","brand":"ChargePlus","category":"electronics","price":39.99,"originalPrice":59.99,"discount":33,"rating":4.4,"reviewCount":5621,"prime":true,"inStock":true,"imageUrl":"https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&amp;h=400&amp;fit=crop","description":"High-capacity portable charger with fast charging","specifications":{"capacity":"20000mAh","ports":"2 USB-A, 1 USB-C","fastCharge":"Yes"}}">
+          Add to Cart
+        </button>
+      </div>
+    </article>
+  </div><div class="scroll-item">
+    <article class="product-card" data-product-id="B12C67890" data-category="fashion" data-price="89.99" data-availability="in_stock">
+      
+      <a href="/product/index.html?id=B12C67890" class="product-link">
+        <div class="product-image-wrapper">
+          
+            <div class="product-badge">
+              
+              <span class="badge badge-prime">PRIME</span>
+              
+              <span class="badge badge-deal">DEAL</span>
+            </div>
+          
+          <img class="product-image" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&amp;h=400&amp;fit=crop" alt="SpeedFit Running Shoes Ultralight" width="400" height="400">
+        </div>
+        
+        <h3 class="product-title">Running Shoes Ultralight</h3>
+      </a>
+      
+      <div class="product-rating">
+        <span class="stars">★★★★☆</span>
+        <span class="rating-count">(1,234)</span>
+      </div>
+      
+      <div class="product-price">
+        <span class="price-current">$89.99</span>
+        
+          <span class="price-original">$129.99</span>
+          <span class="price-discount">31% off</span>
+        
+      </div>
+      
+      <div class="product-shipping">FREE delivery with Prime</div>
+      
+      <div class="product-actions">
+        <button class="btn btn-sm btn-primary" data-add-to-cart="" data-product-id="B12C67890" data-product="{"id":"B12C67890","title":"Running Shoes Ultralight","brand":"SpeedFit","category":"fashion","price":89.99,"originalPrice":129.99,"discount":31,"rating":4.6,"reviewCount":1234,"prime":true,"inStock":true,"imageUrl":"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&amp;h=400&amp;fit=crop","description":"Lightweight running shoes with responsive cushioning","specifications":{"color":"Blue/White","weight":"220g","type":"Running"}}">
+          Add to Cart
+        </button>
+      </div>
+    </article>
+  </div><div class="scroll-item">
+    <article class="product-card" data-product-id="B13D78901" data-category="home" data-price="119.99" data-availability="in_stock">
+      
+      <a href="/product/index.html?id=B13D78901" class="product-link">
+        <div class="product-image-wrapper">
+          
+            <div class="product-badge">
+              <span class="badge badge-bestseller">BESTSELLER</span>
+              <span class="badge badge-prime">PRIME</span>
+              
+              <span class="badge badge-deal">DEAL</span>
+            </div>
+          
+          <img class="product-image" src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=400&amp;h=400&amp;fit=crop" alt="BrewMaster Coffee Maker Deluxe" width="400" height="400">
+        </div>
+        
+        <h3 class="product-title">Coffee Maker Deluxe</h3>
+      </a>
+      
+      <div class="product-rating">
+        <span class="stars">★★★★☆</span>
+        <span class="rating-count">(987)</span>
+      </div>
+      
+      <div class="product-price">
+        <span class="price-current">$119.99</span>
+        
+          <span class="price-original">$159.99</span>
+          <span class="price-discount">25% off</span>
+        
+      </div>
+      
+      <div class="product-shipping">FREE delivery with Prime</div>
+      
+      <div class="product-actions">
+        <button class="btn btn-sm btn-primary" data-add-to-cart="" data-product-id="B13D78901" data-product="{"id":"B13D78901","title":"Coffee Maker Deluxe","brand":"BrewMaster","category":"home","price":119.99,"originalPrice":159.99,"discount":25,"rating":4.5,"reviewCount":987,"prime":true,"inStock":true,"bestSeller":true,"imageUrl":"https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=400&amp;h=400&amp;fit=crop","description":"Programmable coffee maker with thermal carafe","specifications":{"capacity":"12 cups","features":"Programmable, Auto-shutoff","color":"Stainless Steel"}}">
+          Add to Cart
+        </button>
+      </div>
+    </article>
+  </div><div class="scroll-item">
+    <article class="product-card" data-product-id="B14E89012" data-category="books" data-price="14.99" data-availability="in_stock">
+      
+      <a href="/product/index.html?id=B14E89012" class="product-link">
+        <div class="product-image-wrapper">
+          
+            <div class="product-badge">
+              <span class="badge badge-bestseller">BESTSELLER</span>
+              <span class="badge badge-prime">PRIME</span>
+              
+              <span class="badge badge-deal">DEAL</span>
+            </div>
+          
+          <img class="product-image" src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&amp;h=400&amp;fit=crop" alt="Penguin Books The Midnight Library" width="400" height="400">
+        </div>
+        
+        <h3 class="product-title">The Midnight Library</h3>
+      </a>
+      
+      <div class="product-rating">
+        <span class="stars">★★★★☆</span>
+        <span class="rating-count">(12,453)</span>
+      </div>
+      
+      <div class="product-price">
+        <span class="price-current">$14.99</span>
+        
+          <span class="price-original">$19.99</span>
+          <span class="price-discount">25% off</span>
+        
+      </div>
+      
+      <div class="product-shipping">FREE delivery with Prime</div>
+      
+      <div class="product-actions">
+        <button class="btn btn-sm btn-primary" data-add-to-cart="" data-product-id="B14E89012" data-product="{"id":"B14E89012","title":"The Midnight Library","brand":"Penguin Books","category":"books","price":14.99,"originalPrice":19.99,"discount":25,"rating":4.9,"reviewCount":12453,"prime":true,"inStock":true,"bestSeller":true,"imageUrl":"https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&amp;h=400&amp;fit=crop","description":"Bestselling fiction novel by Matt Haig","specifications":{"format":"Paperback","pages":"304","language":"English"}}">
+          Add to Cart
+        </button>
+      </div>
+    </article>
+  </div></div>
       </div>
     </section>
     

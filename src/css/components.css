@@ -188,17 +188,11 @@
 }
 
 .product-actions {
-    display: none;
-    position: absolute;
-    bottom: var(--space-4);
-    left: var(--space-4);
-    right: var(--space-4);
-    gap: var(--space-2);
+    display: flex;
+    margin-top: var(--space-2);
+    width: 100%;
 }
 
-.product-card:hover .product-actions {
-    display: flex;
-}
 
 /* === Badges === */
 .badge {

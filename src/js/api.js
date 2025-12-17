@@ -18,6 +18,7 @@ const MOCK_PRODUCTS = [
     prime: true,
     inStock: true,
     bestSeller: true,
+    imageUrl: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop',
     description: 'Premium wireless headphones with active noise cancellation',
     specifications: {
       color: 'Black',
@@ -38,6 +39,7 @@ const MOCK_PRODUCTS = [
     prime: true,
     inStock: true,
     newArrival: true,
+    imageUrl: 'https://images.unsplash.com/photo-1527814050087-3793815479db?w=400&h=400&fit=crop',
     description: 'High-precision wireless gaming mouse with RGB lighting',
     specifications: {
       color: 'Black',
@@ -57,6 +59,7 @@ const MOCK_PRODUCTS = [
     reviewCount: 3241,
     prime: true,
     inStock: true,
+    imageUrl: 'https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=400&h=400&fit=crop',
     description: 'Advanced fitness tracker with heart rate monitoring',
     specifications: {
       color: 'Silver',
@@ -77,6 +80,7 @@ const MOCK_PRODUCTS = [
     prime: true,
     inStock: true,
     bestSeller: true,
+    imageUrl: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop',
     description: 'Professional mechanical keyboard with Cherry MX switches',
     specifications: {
       color: 'Black',
@@ -96,6 +100,7 @@ const MOCK_PRODUCTS = [
     reviewCount: 5621,
     prime: true,
     inStock: true,
+    imageUrl: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=400&h=400&fit=crop',
     description: 'High-capacity portable charger with fast charging',
     specifications: {
       capacity: '20000mAh',
@@ -115,6 +120,7 @@ const MOCK_PRODUCTS = [
     reviewCount: 1234,
     prime: true,
     inStock: true,
+    imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop',
     description: 'Lightweight running shoes with responsive cushioning',
     specifications: {
       color: 'Blue/White',
@@ -135,6 +141,7 @@ const MOCK_PRODUCTS = [
     prime: true,
     inStock: true,
     bestSeller: true,
+    imageUrl: 'https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=400&h=400&fit=crop',
     description: 'Programmable coffee maker with thermal carafe',
     specifications: {
       capacity: '12 cups',
@@ -155,6 +162,7 @@ const MOCK_PRODUCTS = [
     prime: true,
     inStock: true,
     bestSeller: true,
+    imageUrl: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=400&fit=crop',
     description: 'Bestselling fiction novel by Matt Haig',
     specifications: {
       format: 'Paperback',

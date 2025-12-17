@@ -204,7 +204,8 @@ export function calculateDiscount(originalPrice, currentPrice) {
  */
 export function createProductCard(product) {
     const discountPercent = product.discount || calculateDiscount(product.originalPrice, product.price);
-
+    
+    // Restore productData for Add to Cart button
     const productData = JSON.stringify(product).replace(/"/g, '&quot;');
 
     return `
@@ -213,19 +214,20 @@ export function createProductCard(product) {
              data-category="${product.category}"
              data-price="${product.price}"
              data-availability="${product.inStock ? 'in_stock' : 'out_of_stock'}">
-      ${product.bestSeller || product.newArrival ? `
-        <div class="product-badge">
-          ${product.bestSeller ? '<span class="badge badge-bestseller">Best Seller</span>' : ''}
-          ${product.newArrival ? '<span class="badge badge-new">New</span>' : ''}
-        </div>
-      ` : ''}
       
       <a href="/product/index.html?id=${product.id}" class="product-link">
         <div class="product-image-wrapper">
+          ${product.bestSeller || product.newArrival || product.prime ? `
+            <div class="product-badge">
+              ${product.bestSeller ? '<span class="badge badge-bestseller">BESTSELLER</span>' : ''}
+              ${product.prime ? '<span class="badge badge-prime">PRIME</span>' : ''}
+              ${product.newArrival ? '<span class="badge badge-new">NEW</span>' : ''}
+              ${product.discount > 20 ? '<span class="badge badge-deal">DEAL</span>' : ''}
+            </div>
+          ` : ''}
           <img
-            class="product-image lazy"
-            data-src="/assets/images/products/${product.id}/${product.id}_main_400.jpg"
-            data-srcset="/assets/images/products/${product.id}/${product.id}_main_400.jpg 400w, /assets/images/products/${product.id}/${product.id}_main_800.jpg 800w"
+            class="product-image"
+            src="${product.imageUrl || `https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop`}"
             alt="${product.brand} ${product.title}"
             width="400" height="400">
         </div>
@@ -242,11 +244,11 @@ export function createProductCard(product) {
         <span class="price-current">${formatPrice(product.price)}</span>
         ${product.originalPrice ? `
           <span class="price-original">${formatPrice(product.originalPrice)}</span>
-          <span class="price-discount">-${discountPercent}%</span>
+          <span class="price-discount">${discountPercent}% off</span>
         ` : ''}
       </div>
       
-      ${product.prime ? '<div class="product-shipping">FREE Prime delivery</div>' : ''}
+      ${product.prime ? '<div class="product-shipping">FREE delivery with Prime</div>' : '<div class="product-shipping">FREE delivery Thu, Dec 14</div>'}
       
       <div class="product-actions">
         <button class="btn btn-sm btn-primary" 
