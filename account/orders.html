@@ -8,6 +8,265 @@
     <link rel="stylesheet" href="/src/css/main.css">
     <link rel="stylesheet" href="/src/css/components.css">
     <link rel="stylesheet" href="/src/css/layout.css">
+    <link rel="stylesheet" href="/src/css/mobile.css">
+    <style>
+        .orders-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: var(--space-8) 0 var(--space-6) 0;
+            flex-wrap: wrap;
+            gap: var(--space-4);
+        }
+        
+        .orders-title {
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-gray-900);
+        }
+        
+        .back-link {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-size: var(--font-size-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            transition: color var(--transition-fast);
+        }
+        
+        .back-link:hover {
+            color: var(--color-accent-dark);
+            text-decoration: underline;
+        }
+        
+        .search-filter-bar {
+            background: var(--color-white);
+            padding: var(--space-6);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-6);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .search-filter-controls {
+            display: flex;
+            gap: var(--space-4);
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .order-search {
+            flex: 1;
+            min-width: 250px;
+            padding: var(--space-3) var(--space-4);
+            border: 1px solid var(--color-gray-300);
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-base);
+            transition: all var(--transition-fast);
+        }
+        
+        .order-search:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(20, 110, 180, 0.1);
+        }
+        
+        .order-filter {
+            padding: var(--space-3) var(--space-4);
+            border: 1px solid var(--color-gray-300);
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-base);
+            background: var(--color-white);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+        
+        .order-filter:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(20, 110, 180, 0.1);
+        }
+        
+        .order-card {
+            background: var(--color-white);
+            padding: var(--space-6);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-6);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-base);
+        }
+        
+        .order-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--color-gray-300);
+        }
+        
+        .order-header {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--space-4);
+            margin-bottom: var(--space-4);
+            padding-bottom: var(--space-4);
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+        
+        .order-header-item {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-1);
+        }
+        
+        .order-header-label {
+            font-size: var(--font-size-xs);
+            color: var(--color-gray-600);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: var(--font-weight-semibold);
+        }
+        
+        .order-header-value {
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-gray-900);
+            font-size: var(--font-size-sm);
+        }
+        
+        .order-status {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-full);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-semibold);
+        }
+        
+        .status-delivered {
+            background-color: #D4EDDA;
+            color: #155724;
+        }
+        
+        .status-shipped {
+            background-color: #D1ECF1;
+            color: #0C5460;
+        }
+        
+        .status-processing {
+            background-color: #FFF3CD;
+            color: #856404;
+        }
+        
+        .status-cancelled {
+            background-color: #F8D7DA;
+            color: #721C24;
+        }
+        
+        .order-items {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+        
+        .order-item {
+            display: flex;
+            gap: var(--space-4);
+            align-items: start;
+        }
+        
+        .order-item-image {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-base);
+            background: var(--color-gray-50);
+            flex-shrink: 0;
+        }
+        
+        .order-item-details {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .order-item-title {
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-2);
+            color: var(--color-gray-900);
+            font-size: var(--font-size-base);
+        }
+        
+        .order-item-title:hover {
+            color: var(--color-accent);
+        }
+        
+        .order-item-meta {
+            color: var(--color-gray-600);
+            font-size: var(--font-size-sm);
+            margin-bottom: var(--space-3);
+        }
+        
+        .order-item-actions {
+            display: flex;
+            gap: var(--space-3);
+            flex-wrap: wrap;
+            margin-top: var(--space-3);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: var(--space-16) var(--space-8);
+            background: var(--color-white);
+            border: 1px solid var(--color-gray-200);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .empty-icon {
+            font-size: 5rem;
+            margin-bottom: var(--space-4);
+        }
+        
+        .empty-title {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-3);
+            color: var(--color-gray-900);
+        }
+        
+        .empty-description {
+            color: var(--color-gray-600);
+            margin-bottom: var(--space-6);
+            font-size: var(--font-size-base);
+        }
+        
+        @media (max-width: 767px) {
+            .orders-title {
+                font-size: var(--font-size-2xl);
+            }
+            
+            .order-header {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .order-item {
+                flex-direction: column;
+            }
+            
+            .order-item-image {
+                width: 100%;
+                height: 200px;
+            }
+            
+            .search-filter-controls {
+                flex-direction: column;
+            }
+            
+            .order-search {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -45,17 +304,18 @@
 
     <main>
         <div class="container">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin: 2rem 0;">
-                <h1 style="font-size: 2rem; font-weight: bold;">Your Orders</h1>
-                <a href="/account/dashboard.html" style="color: var(--color-accent);">← Back to Account</a>
+            <div class="orders-header">
+                <h1 class="orders-title">Your Orders</h1>
+                <a href="/account/dashboard.html" class="back-link">
+                    <span>←</span>
+                    <span>Back to Account</span>
+                </a>
             </div>
 
-            <div
-                style="background: white; padding: 1.5rem; border: 1px solid var(--color-gray-200); border-radius: 8px; margin-bottom: 2rem;">
-                <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
-                    <input type="search" placeholder="Search all orders"
-                        style="flex: 1; padding: 0.5rem 1rem; border: 1px solid var(--color-gray-300); border-radius: 4px;">
-                    <select style="padding: 0.5rem 1rem; border: 1px solid var(--color-gray-300); border-radius: 4px;">
+            <div class="search-filter-bar">
+                <div class="search-filter-controls">
+                    <input type="search" placeholder="Search all orders" class="order-search">
+                    <select class="order-filter">
                         <option>Last 3 months</option>
                         <option>Last 6 months</option>
                         <option>This year</option>
@@ -65,48 +325,144 @@
             </div>
 
             <div id="orders-container">
-                <!-- Sample order -->
-                <div
-                    style="background: white; padding: 1.5rem; border: 1px solid var(--color-gray-200); border-radius: 8px; margin-bottom: 1.5rem;">
-                    <div
-                        style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--color-gray-200);">
-                        <div>
-                            <div style="font-size: 0.75rem; color: var(--color-gray-600);">ORDER PLACED</div>
-                            <div style="font-weight: 600;">November 20, 2025</div>
+                <!-- Order 1: Delivered -->
+                <div class="order-card">
+                    <div class="order-header">
+                        <div class="order-header-item">
+                            <span class="order-header-label">Order Placed</span>
+                            <span class="order-header-value">December 10, 2025</span>
                         </div>
-                        <div>
-                            <div style="font-size: 0.75rem; color: var(--color-gray-600);">TOTAL</div>
-                            <div style="font-weight: 600;">$129.99</div>
+                        <div class="order-header-item">
+                            <span class="order-header-label">Total</span>
+                            <span class="order-header-value">$129.99</span>
                         </div>
-                        <div>
-                            <div style="font-size: 0.75rem; color: var(--color-gray-600);">ORDER #</div>
-                            <div style="font-weight: 600;">#123-4567890-1234567</div>
+                        <div class="order-header-item">
+                            <span class="order-header-label">Ship To</span>
+                            <span class="order-header-value">John Doe</span>
+                        </div>
+                        <div class="order-header-item">
+                            <span class="order-header-label">Order #</span>
+                            <span class="order-header-value">#123-4567890-1234567</span>
                         </div>
                     </div>
 
-                    <div style="display: flex; gap: 1.5rem; align-items: start;">
-                        <img src="/assets/images/products/B07X12345/B07X12345_main_400.jpg" alt="Product"
-                            style="width: 100px; height: 100px; object-fit: contain; border: 1px solid var(--color-gray-200); border-radius: 4px;">
-                        <div style="flex: 1;">
-                            <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Premium Bluetooth Headphones</h3>
-                            <p style="color: var(--color-gray-600); font-size: 0.875rem; margin-bottom: 0.5rem;">
-                                Delivered Nov 25, 2025</p>
-                            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
-                                <a href="/account/order-details.html" class="btn btn-sm btn-accent">View Order</a>
-                                <button class="btn btn-sm btn-outline">Buy Again</button>
+                    <div class="order-items">
+                        <div class="order-item">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&h=200&fit=crop" 
+                                 alt="Premium Bluetooth Headphones" class="order-item-image">
+                            <div class="order-item-details">
+                                <h3 class="order-item-title">Premium Bluetooth Headphones with Active Noise Cancellation</h3>
+                                <div class="order-item-meta">
+                                    <span class="order-status status-delivered">✓ Delivered Dec 15, 2025</span>
+                                </div>
+                                <div class="order-item-actions">
+                                    <a href="/account/order-details.html" class="btn btn-sm btn-primary">View Order Details</a>
+                                    <button class="btn btn-sm btn-secondary">Buy Again</button>
+                                    <button class="btn btn-sm btn-outline">Write a Review</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Empty state -->
-                <div id="empty-state"
-                    style="display: none; text-align: center; padding: 4rem; background: white; border: 1px solid var(--color-gray-200); border-radius: 8px;">
-                    <div style="font-size: 4rem; margin-bottom: 1rem;">📦</div>
-                    <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">No orders yet</h2>
-                    <p style="color: var(--color-gray-600); margin-bottom: 2rem;">Start shopping to see your orders here
-                    </p>
-                    <a href="/" class="btn btn-primary">Continue Shopping</a>
+                <!-- Order 2: Shipped -->
+                <div class="order-card">
+                    <div class="order-header">
+                        <div class="order-header-item">
+                            <span class="order-header-label">Order Placed</span>
+                            <span class="order-header-value">December 14, 2025</span>
+                        </div>
+                        <div class="order-header-item">
+                            <span class="order-header-label">Total</span>
+                            <span class="order-header-value">$209.98</span>
+                        </div>
+                        <div class="order-header-item">
+                            <span class="order-header-label">Ship To</span>
+                            <span class="order-header-value">John Doe</span>
+                        </div>
+                        <div class="order-header-item">
+                            <span class="order-header-label">Order #</span>
+                            <span class="order-header-value">#123-9876543-7654321</span>
+                        </div>
+                    </div>
+
+                    <div class="order-items">
+                        <div class="order-item">
+                            <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=200&fit=crop" 
+                                 alt="Mechanical Keyboard" class="order-item-image">
+                            <div class="order-item-details">
+                                <h3 class="order-item-title">Mechanical Keyboard RGB with Cherry MX Switches</h3>
+                                <div class="order-item-meta">
+                                    <span class="order-status status-shipped">🚚 Arriving Dec 18, 2025</span>
+                                </div>
+                                <div class="order-item-actions">
+                                    <a href="/tracking/index.html" class="btn btn-sm btn-primary">Track Package</a>
+                                    <a href="/account/order-details.html" class="btn btn-sm btn-secondary">View Order</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-item">
+                            <img src="https://images.unsplash.com/photo-1527814050087-3793815479db?w=200&h=200&fit=crop" 
+                                 alt="Gaming Mouse" class="order-item-image">
+                            <div class="order-item-details">
+                                <h3 class="order-item-title">Wireless Gaming Mouse with RGB Lighting</h3>
+                                <div class="order-item-meta">
+                                    <span class="order-status status-shipped">🚚 Arriving Dec 18, 2025</span>
+                                </div>
+                                <div class="order-item-actions">
+                                    <a href="/tracking/index.html" class="btn btn-sm btn-primary">Track Package</a>
+                                    <a href="/account/order-details.html" class="btn btn-sm btn-secondary">View Order</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order 3: Processing -->
+                <div class="order-card">
+                    <div class="order-header">
+                        <div class="order-header-item">
+                            <span class="order-header-label">Order Placed</span>
+                            <span class="order-header-value">December 16, 2025</span>
+                        </div>
+                        <div class="order-header-item">
+                            <span class="order-header-label">Total</span>
+                            <span class="order-header-value">$299.99</span>
+                        </div>
+                        <div class="order-header-item">
+                            <span class="order-header-label">Ship To</span>
+                            <span class="order-header-value">John Doe</span>
+                        </div>
+                        <div class="order-header-item">
+                            <span class="order-header-label">Order #</span>
+                            <span class="order-header-value">#123-1122334-5566778</span>
+                        </div>
+                    </div>
+
+                    <div class="order-items">
+                        <div class="order-item">
+                            <img src="https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=200&h=200&fit=crop" 
+                                 alt="Smart Watch" class="order-item-image">
+                            <div class="order-item-details">
+                                <h3 class="order-item-title">Smart Watch Pro with Fitness Tracking</h3>
+                                <div class="order-item-meta">
+                                    <span class="order-status status-processing">⏳ Processing - Arriving Dec 20, 2025</span>
+                                </div>
+                                <div class="order-item-actions">
+                                    <a href="/account/order-details.html" class="btn btn-sm btn-primary">View Order</a>
+                                    <button class="btn btn-sm btn-outline">Cancel Items</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empty state (hidden by default) -->
+                <div id="empty-state" class="empty-state" style="display: none;">
+                    <div class="empty-icon">📦</div>
+                    <h2 class="empty-title">No orders yet</h2>
+                    <p class="empty-description">Start shopping to see your orders here</p>
+                    <a href="/" class="btn btn-primary btn-lg">Continue Shopping</a>
                 </div>
             </div>
         </div>

@@ -202,6 +202,12 @@
     font-size: var(--font-size-base);
   }
   
+  .product-actions .btn {
+    padding: var(--space-2) var(--space-3);
+    font-size: 0.75rem;
+    min-height: 32px;
+  }
+  
   /* === Modal Mobile === */
   .modal {
     max-width: 95vw;
@@ -284,13 +290,13 @@
     font-size: var(--font-size-sm) !important;
   }
   
-  /* Single column for very small screens */
+  /* Keep 2x2 grid for very small screens */
   .product-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   
   .md\:grid-cols-4 {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   
   /* Smaller scroll items */
@@ -348,6 +354,16 @@
     display: flex; /* Always show on touch devices */
     position: static;
     margin-top: var(--space-3);
+  }
+  
+  .product-actions .btn {
+    min-height: 40px;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+  }
+  
+  .product-actions .btn:active {
+    transform: scale(0.98);
   }
 }
 
