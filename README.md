@@ -1,3 +1,5 @@
+![Alt](https://repobeats.axiom.co/api/embed/1a21a68418656298d1f25ac5d05649480e130e2c.svg "Repobeats analytics image")
+
 # ShopHub - Amazon-Style Ecommerce Website
 
 A modern, responsive ecommerce website built with HTML, CSS, and JavaScript, featuring an Amazon-inspired design and mobile-first approach.
